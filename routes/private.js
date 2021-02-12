@@ -8,17 +8,21 @@ router.get('/', function(req, res, next) {
 
 
 
-//GET /PRIVATE renders personal profile view
+//GET /PRIVATE/PROFILE renders personal profile view
 
 //GET /PRIVATE/EDIT-PROFILE renders edit-profile view
 
 //POST /PRIVATE/EDIT-PROFILE sends new data to the server. Renders same page updated
+
+
 
 //GET /PRIVATE/FAVORITES renders favorites view
 
 //POST /PRIVATE/FAVORITES adds new favorite
 
 //POST /PRIVATE/FAVORITES/:ID deletes existing favorite recipe
+
+
 
 //GET /PRIVATE/MYRECIPES renders myrecipes view
 
@@ -27,6 +31,9 @@ router.get('/', function(req, res, next) {
 //POST /PRIVATE/MYRECIPES/ADD renders my recipes updated view
 
 //POST /PRIVATE/MYRECIPES/:ID delete selected myrecipe
+
+
+// POST PRIVATE/RECIPES/:id adds new review and renders the same page (updated)
 
 
 

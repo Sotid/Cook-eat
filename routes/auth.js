@@ -11,8 +11,7 @@ router.get('/', function(req, res, next) {
 });
 
 
-
-
+//POST LOGIN
 
 
 // GET SIGNUP
@@ -20,8 +19,6 @@ router.get('/', function(req, res, next) {
 //POST SIGNUP
 
 
-
-//POST LOGIN
 
 //GET LOGOUT
 
