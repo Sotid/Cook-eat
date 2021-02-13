@@ -1,13 +1,15 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+
 // RECIPE SCHEMA
 const recipeSchema = new Schema({
   name: { type: String, required: true },
   ingredients: [
     {
-      quantity: Number,
+      
       name: { type: String, required: true },
+      quantity: String,
       type: {
         type: String,
         required: true,
@@ -24,7 +26,7 @@ const recipeSchema = new Schema({
       },
     },
   ],
-  instructions: { type: [String], required: true },
+  instructions: { type: String, required: true },
   imageURL: {
     type: String,
     default:
@@ -40,6 +42,6 @@ const recipeSchema = new Schema({
 
 // CREATE MODEL
 
-const Recipe = moongoose.model("Recipe", recipeSchema);
+const Recipe = mongoose.model("Recipe", recipeSchema);
 
 module.exports = Recipe;

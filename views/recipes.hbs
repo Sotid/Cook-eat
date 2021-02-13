@@ -1,1 +1,9 @@
-<h1>Hello</h1>
+<h2>Take a look and click to display details</h2>
+<ul>
+{{#each allRecipes}}
+<li>
+{{this.name}}
+<a href="/recipes/{{this._id}}">{{this.imageURL}}</a>
+</li>
+{{/each}}
+</ul>

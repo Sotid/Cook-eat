@@ -1,10 +1,23 @@
 <h2>Edit your personal data</h2>
-<form action='/{{oneCeleb._id}}/edit' method='POST'>
- <label for=''>Username</label>
-  <input type='text' name='username' value="{{oneCeleb.name}}">
-  <label for=''>Email</label>
-  <input type='text' name='email' value="{{oneCeleb.occupation}}">
-   <label for=''>Password</label>
-  <input type='text' name='password' value="{{oneCeleb.catchPhrase}}">
-  <button type='submit'>Submit</button>
+
+   <img id="avatar" src={{thisUser.imageURL}}>
+
+     
+<form action='/private/myprofile/edit/{{thisUser._id}}' method='POST'>
+
+
+  <input type='text' name='username' value="{{thisUser.username}}">
+
+  <label for='email'>Email</label>
+  <input type='text' name='email' value="{{thisUser.email}}">
+
+  <label for='password'>Password</label>
+  <input type='text' name='password' value="New password">
+
+   <label for='password'>Avatar</label>
+  <input type='text' name='avatar' value="paste a URL">
+
+  <a href="/private/myprofile"><button type='submit'>Submit</button></a>
+
+
 </form>

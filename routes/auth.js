@@ -129,4 +129,3 @@ authRouter.get("/logout", (req, res, next) => {
 });
 module.exports = authRouter;
 
-module.exports = authRouter;

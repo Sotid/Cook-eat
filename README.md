@@ -40,9 +40,9 @@ Search platform for recipes based on the ingredients you have in your fridge. Yo
 | `GET`      | `/private/favorites`     | Private route. Render the `favorites` view.                  |                               |
 | `POST`     | `/private/favorites/`    | Private route. Adds a new favorite for the current user.     | { name, image }               |
 | `P`OST     | /recipes/:id             | Adds new review and renders the same page with updated info. |                               |
-| GET        | /v                 | Private route.Renders to personal                            |                               |
-| `GET`      | `/private/edit-profile`  | Private route. Renders `edit-profile` form view.             |                               |
-| POST       | /private/edit-profile    | Private route. Send updated data to the server.              |                               |                               |
+| GET        | /private/myprofile        | Private route.Renders to personal profile                          |                               |
+| `GET`      | `/private/myprofile/edit`  | Private route. Renders `edit-profile` form view.             |                               |
+| POST       | /private/myprofile/edit    | Private route. Send updated data to the server.              |                               |                               |
 | POST       | `/private/favorites/:id` | Private route. Deletes the existing favorite from the current user. |                               |
 | GET        | private/myrecipes        | Private route.Renders my recipes view.                       |                               |
 | GET        | `/private/myrecipes/`add | Private route. The current user can add a new recipe.        |                               |
