@@ -1,1 +1,21 @@
-<h1>HEYYYYYY TITI HERE'S YOUR LOGIN FORM</h1>
+<form action='/signup' method='POST'>
+  <h2>Create a new account</h2>
+
+  <label for=''>Username</label>
+  <input type='text' name='username' minlength="6">
+
+   <label for=''>Email</label>
+  <input type='email' name='email'>
+
+  <label for=''>Password</label>
+  <input type='password' name='password' minlength="6">
+
+  <button type='submit'>Sign up</button>
+</form>
+
+
+{{#if errorMessage}}
+  <div class="error-message">
+    {{ errorMessage }}
+  </div>
+{{/if}}

@@ -6,11 +6,11 @@ const userSchema = new Schema({
   username: { type: String, unique: true, required: true },
   email: { type: String, unique: true, required: true },
   password: { type: String, required: true },
-  favorites: [ObjectId],
-  myRecipes: [ObjectId],
+  favorites: [Schema.Types.ObjectId],
+  myRecipes: [Schema.Types.ObjectId],
 });
 
 // CREATE MODEL
-const User = moongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;
