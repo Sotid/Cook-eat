@@ -9,7 +9,7 @@ const saltRounds = 10;
 //GET LOGIN
 
 authRouter.get("/", function (req, res, next) {
-  res.render("auth-views/login-form");
+  res.render("auth-views/login-form", {layout:false});
 });
 
 //POST LOGIN
@@ -21,6 +21,7 @@ authRouter.post("/login", (req, res, next) => {
 
   if (username === "" || password === "") {
     res.render("auth-views/login-form", {
+      layout:false,
       errorMessage: "Don't be a stranger! Please identify yourself",
     });
 
@@ -33,6 +34,7 @@ authRouter.post("/login", (req, res, next) => {
     .then((user) => {
       if (!user) {
         res.render("auth-views/login-form", {
+          layout:false,
           errorMessage: "Don't be a stranger! Please identify yourself",
         });
 
@@ -48,6 +50,7 @@ authRouter.post("/login", (req, res, next) => {
         res.redirect("/recipes");
       } else {
         res.render("auth-views/login-form", {
+          layout:false,
           errorMessage: "Don't be a stranger! Please identify yourself",
         });
       }
@@ -58,17 +61,17 @@ authRouter.post("/login", (req, res, next) => {
 // GET SIGNUP
 
 authRouter.get("/signup", (req, res, next) => {
-  res.render("auth-views/signup-form");
+  res.render("auth-views/signup-form", {layout:false});
 });
 
 //POST SIGNUP
 authRouter.post("/signup", (req, res, next) => {
   const { username, email, password } = req.body;
-  console.log("errorrrrrrrrr");
 
   //Checks if credentials are empty
   if (username === "" || password === "" || email === "") {
     res.render("auth-views/signup-form", {
+      layout:false,
       errorMessage: "Don't be a stranger! Please identify yourself",
     });
 
@@ -80,8 +83,10 @@ authRouter.post("/signup", (req, res, next) => {
     .then((user) => {
       if (user !== null) {
         res.render("auth-views/signup-form", {
-          errorMessage: "Oops!There was an error, try again",
+          layout:false,
+          errorMessage: "Don't be a stranger! Please identify yourself",
         });
+    
 
         return;
       }
@@ -100,8 +105,10 @@ authRouter.post("/signup", (req, res, next) => {
         .catch((err) => {
           console.log(err);
           res.render("auth-views/signup-form", {
-            errorMessage: "Oops!There was an error, please try again!",
+            layout:false,
+            errorMessage: "Don't be a stranger! Please identify yourself",
           });
+      
         });
 
       // > Redirect the user
@@ -110,5 +117,16 @@ authRouter.post("/signup", (req, res, next) => {
 });
 
 //GET LOGOUT
+
+authRouter.get("/logout", (req, res, next) => {
+  req.session.destroy(function (err) {
+    if (err) {
+      next(err);
+    } else {
+      res.redirect("/");
+    }
+  });
+});
+module.exports = authRouter;
 
 module.exports = authRouter;
