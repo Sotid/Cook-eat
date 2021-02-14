@@ -6,20 +6,20 @@
   <input type='text' name='name'>
 
   <h4>Photo:</h4>
-  <label for='photo'>Add a nice picture</label>
-  <input type='text' name='quantity'>
+  <label for='imageURL'>Add a nice picture</label>
+  <input type='text' name='imageURL'>
 
   <h4>Ingredients:</h4>
    <div id="new-ingredient">
   <ul>
-  <li><label for='ingredient'>Ingredient</label>
-  <input type='text' name='ingredient'>
+  <li><label for='ingredients.name'>Ingredient</label>
+  <input type='text' name='ingredients.name'>
 
-    <label for='quantity'>Quantity</label>
-  <input type='text' name='quantity'>
+    <label for='ingredients.quantity'>Quantity</label>
+  <input type='text' name='ingredients.quantity'>
 
-    <label for='type'>Type</label>
-<select name="type" value="Type:">
+    <label for='ingredients.type'>Type</label>
+<select name="ingredients.type" value="Type:">
   <option value="Cereals and Legumes">Cereals and legumes</option>
   <option value="Condiments">Condiments</option>
   <option value="Dairy">Dairy</option>
@@ -34,12 +34,14 @@
 
 </select></li>
 
-  <button id="add-more" >Add more</button>
+  <button id="add-more">Add more</button>
   
 </ul>
 </div>
 <h4>Instructions:</h4>
-<textarea name="textarea" rows="10" cols="50">How to make it yummy?</textarea>
+
+    <label for='instructions'></label>
+<textarea name="instructions" rows="10" cols="50" placeholder="How to make it yummy?"></textarea>
 
   <a href="/recipes/{{newRecipe._id}}"><button type='submit'>Create!</button></a>
 
