@@ -47,14 +47,15 @@ recipesRouter.get("/:recipeId", function (req, res, next) {
 // POST /RECIPES/:id posts a review in a recipes' id
 
 recipesRouter.post("/:recipeId", function (req, res, next) {
-  const reviews = res.body;
   const { recipeId } = req.params;
+  const reviews = req.body.review;
+
   Recipe.findByIdAndUpdate(
     recipeId,
     { $push: { reviews: reviews } },
     { new: true }
   ).then((recipeReviews) => {
-    res.render("details", { recipeReviews: recipeReviews });
+    res.redirect(`/recipes/${recipeId}`);
   });
 });
 
