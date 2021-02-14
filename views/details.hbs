@@ -1,15 +1,21 @@
 <div>
-  <h1{{}}</h1>
 
-  
-  <label for='name'><h4>Title:</h4></label>
-  <input type='text' name='name'>
+  <h1 id="details-title"> hello   nmn,mn{{oneRecipe.name}}</h1>
 
-  <h4>Photo:</h4>
-  <label for='photo'>Paste your recipes' URL</label>
-  <input type='text' name='quantity'>
+
+  <img id="details-photo" src="{{oneRecipe.imageURL}}">
 
   <h4>Ingredients:</h4>
+
+  <ul>
+   {{#each ingredients}} 
+
+      <li> heloo {{this.name}}</li>
+
+  {{/each}}
+
+</ul>
+
    <div id="new-ingredient">
   <ul>
   <li><label for='ingredient'>Ingredient</label>

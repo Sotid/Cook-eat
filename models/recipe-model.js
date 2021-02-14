@@ -1,13 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-
 // RECIPE SCHEMA
 const recipeSchema = new Schema({
   name: { type: String, required: true },
   ingredients: [
     {
-      
       name: { type: String, required: true },
       quantity: String,
       type: {
@@ -22,6 +20,7 @@ const recipeSchema = new Schema({
           "Cereals and legumes",
           "Flours",
           "Rice and pasta",
+          "Soups and Creams",
           "Dairy",
           "Fruits",
         ],

@@ -3,7 +3,7 @@
 {{#each allRecipes}}
 <li>
 {{this.name}}
-<a href="/recipes/{{this._id}}">{{this.imageURL}}</a>
+<a href="/recipes/{{this._id}}"><img id="recipe-img" src="{{this.imageURL}}"></a>
 </li>
 {{/each}}
 </ul>

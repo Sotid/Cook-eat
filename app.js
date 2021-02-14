@@ -11,8 +11,8 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
 //Session connection
-const session= require("express-session");
-const MongoStore = require("connect-mongo")(session)
+const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
 
 const authRouter = require("./routes/auth");
 const privateRouter = require("./routes/private");
@@ -45,10 +45,12 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 // Session cookies
-app.use (
+app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: true,

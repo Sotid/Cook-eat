@@ -3,7 +3,7 @@ const privateRouter = express.Router();
 const bcrypt = require("bcrypt");
 const User = require("../models/user-model");
 const Recipe = require("../models/recipe-model");
-
+const bodyParser = require("body-parser");
 const zxcvbn = require("zxcvbn");
 
 //custom middleware
@@ -42,18 +42,21 @@ privateRouter.get("/myprofile/edit/:id", loggedIn, (req, res, next) => {
       console.log(err);
       next();
     });
-  
 });
 
 //POST /PRIVATE/MYPROFILE/EDIT sends new data to the server. Renders same page updated
 
-privateRouter.post("/myprofile/edit/:id", loggedIn,(req, res, next) => {
+privateRouter.post("/myprofile/edit/:id", loggedIn, (req, res, next) => {
   const id = req.session.currentUser._id;
   const { username, email, password, imageURL } = req.body;
-   
-  User.findByIdAndUpdate(id, { username, email, password, imageURL}, {new:true})
+
+  User.findByIdAndUpdate(
+    id,
+    { username, email, password, imageURL },
+    { new: true }
+  )
     .then((updated) => {
-      res.redirect('/private/myprofile')
+      res.redirect("/private/myprofile");
     })
     .catch((err) => console.log(err));
 });
@@ -61,25 +64,23 @@ privateRouter.post("/myprofile/edit/:id", loggedIn,(req, res, next) => {
 //GET /PRIVATE/FAVORITES renders favorites and my recipes view
 
 privateRouter.get("/favorites", loggedIn, function (req, res, next) {
-  res.render("favorites" );
+  res.render("favorites");
 });
 
 //GET /PRIVATE/FAVORITES/CREATE adds new favorite
 privateRouter.get("/favorites/create", loggedIn, function (req, res, next) {
-
-  res.render("create")
-  
+  res.render("create");
 });
 
 //POST /PRIVATE/FAVORITES/CREATE adds new favorite
-privateRouter.post('/favorites/create', (req, res, next) => {
-  const {name, imageURL, ingredients, instructions} = req.body;
-  Recipe.create({name, imageURL, ingredients, instructions}, {new: true},)
+privateRouter.post("/favorites/create", (req, res, next) => {
+  const { name, imageURL, ingredients, instructions } = req.body;
+  Recipe.create({ name, imageURL, ingredients, instructions }, { new: true })
     .then((newRecipe) => {
       res.redirect("recipes"); // TO CHECK AFTER RECIPES/ID ROUTE CREATION
     })
-    .catch( (err) => console.log(err));
-})
+    .catch((err) => console.log(err));
+});
 
 //POST /PRIVATE/FAVORITES/:ID deletes existing favorite recipe
 
