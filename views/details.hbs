@@ -1,6 +1,6 @@
 <div>
 
-  <h1 id="details-title"> hello   nmn,mn{{oneRecipe.name}}</h1>
+  <h1 id="details-title">{{oneRecipe.name}}</h1>
 
 
   <img id="details-photo" src="{{oneRecipe.imageURL}}">
@@ -8,42 +8,23 @@
   <h4>Ingredients:</h4>
 
   <ul>
-   {{#each ingredients}} 
+   {{#each oneRecipe.ingredients}} 
 
-      <li> heloo {{this.name}}</li>
+      <li>{{this.name}}, {{this.quantity}}</li>
 
   {{/each}}
 
 </ul>
-
-   <div id="new-ingredient">
-  <ul>
-  <li><label for='ingredient'>Ingredient</label>
-  <input type='text' name='ingredient'>
-
-    <label for='quantity'>Quantity</label>
-  <input type='text' name='quantity'>
-
-    <label for='type'>Type</label>
-<select name="type" value="Type:">
-  <option value="Cereals and legumes">Cereals and legumes</option>
-  <option value="Condiments">Condiments</option>
-  <option value="Dairy">Dairy</option>
-  <option value="Drinks">Drinks</option>
-  <option value="Fish">Fish</option>
-  <option value="Fruits">Fruits</option>
-  <option value="Meat">Meat</option>
-  <option value="Vegetables">Vegetables</option>
-</select></li>
-
-  <button id="add-more" type="submit">Add more</button>
   
-</ul>
+
 </div>
 <h4>Instructions:</h4>
-<textarea name="textarea" rows="10" cols="50">How to make it yummy?</textarea>
+<p>{{oneRecipe.instructions}}</p>
 
-  <button type='submit'>Create!</button>
+<form>
+<textarea name="textarea" rows="10" cols="50">Wanna leave a comment?</textarea>
+
+  <button type='submit'>Submit</button>
 
 </form>
 

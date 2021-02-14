@@ -73,15 +73,19 @@ privateRouter.get("/favorites/create", loggedIn, function (req, res, next) {
 });
 
 //POST /PRIVATE/FAVORITES/CREATE adds new favorite
-privateRouter.post("/favorites/create", (req, res, next) => {
+privateRouter.post("/favorites/create", loggedIn, (req, res, next) => {
   const { name, imageURL, ingredients, instructions } = req.body;
+  let thisUser = req.session.currentUser._id;
   Recipe.create({ name, imageURL, ingredients, instructions }, { new: true })
     .then((newRecipe) => {
-      res.redirect("recipes"); // TO CHECK AFTER RECIPES/ID ROUTE CREATION
+      res.redirect(`/recipes`);
+      User.findById(thisUser).then((thisUser) => {
+        newRecipe.push(thisUser.myRecipes);
+      });
     })
     .catch((err) => console.log(err));
 });
-
+// res.render("details")
 //POST /PRIVATE/FAVORITES/:ID deletes existing favorite recipe
 
 //GET /PRIVATE/MYRECIPES renders myrecipes view
