@@ -76,7 +76,7 @@ privateRouter.post('/favorites/create', (req, res, next) => {
   const {name, imageURL, ingredients, instructions} = req.body;
   Recipe.create({name, imageURL, ingredients, instructions}, {new: true},)
     .then((newRecipe) => {
-      res.redirect(`/recipes`); // TO CHECK AFTER RECIPES/ID ROUTE CREATION
+      res.redirect("recipes"); // TO CHECK AFTER RECIPES/ID ROUTE CREATION
     })
     .catch( (err) => console.log(err));
 })

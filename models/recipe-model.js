@@ -20,6 +20,8 @@ const recipeSchema = new Schema({
           "Drinks",
           "Vegetables",
           "Cereals and legumes",
+          "Flours",
+          "Rice and pasta",
           "Dairy",
           "Fruits",
         ],

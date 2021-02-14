@@ -9,7 +9,7 @@ const saltRounds = 10;
 //GET LOGIN
 
 authRouter.get("/", function (req, res, next) {
-  res.render("auth-views/login-form", {layout:false});
+  res.render("auth-views/login-form", { layout: false });
 });
 
 //POST LOGIN
@@ -21,7 +21,7 @@ authRouter.post("/login", (req, res, next) => {
 
   if (username === "" || password === "") {
     res.render("auth-views/login-form", {
-      layout:false,
+      layout: false,
       errorMessage: "Don't be a stranger! Please identify yourself",
     });
 
@@ -34,7 +34,7 @@ authRouter.post("/login", (req, res, next) => {
     .then((user) => {
       if (!user) {
         res.render("auth-views/login-form", {
-          layout:false,
+          layout: false,
           errorMessage: "Don't be a stranger! Please identify yourself",
         });
 
@@ -50,7 +50,7 @@ authRouter.post("/login", (req, res, next) => {
         res.redirect("/recipes");
       } else {
         res.render("auth-views/login-form", {
-          layout:false,
+          layout: false,
           errorMessage: "Don't be a stranger! Please identify yourself",
         });
       }
@@ -61,7 +61,7 @@ authRouter.post("/login", (req, res, next) => {
 // GET SIGNUP
 
 authRouter.get("/signup", (req, res, next) => {
-  res.render("auth-views/signup-form", {layout:false});
+  res.render("auth-views/signup-form", { layout: false });
 });
 
 //POST SIGNUP
@@ -71,7 +71,7 @@ authRouter.post("/signup", (req, res, next) => {
   //Checks if credentials are empty
   if (username === "" || password === "" || email === "") {
     res.render("auth-views/signup-form", {
-      layout:false,
+      layout: false,
       errorMessage: "Don't be a stranger! Please identify yourself",
     });
 
@@ -83,10 +83,9 @@ authRouter.post("/signup", (req, res, next) => {
     .then((user) => {
       if (user !== null) {
         res.render("auth-views/signup-form", {
-          layout:false,
+          layout: false,
           errorMessage: "Don't be a stranger! Please identify yourself",
         });
-    
 
         return;
       }
@@ -105,10 +104,9 @@ authRouter.post("/signup", (req, res, next) => {
         .catch((err) => {
           console.log(err);
           res.render("auth-views/signup-form", {
-            layout:false,
+            layout: false,
             errorMessage: "Don't be a stranger! Please identify yourself",
           });
-      
         });
 
       // > Redirect the user
@@ -128,4 +126,3 @@ authRouter.get("/logout", (req, res, next) => {
   });
 });
 module.exports = authRouter;
-
