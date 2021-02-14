@@ -76,13 +76,11 @@ privateRouter.get("/favorites/create", loggedIn, function (req, res, next) {
 privateRouter.post("/favorites/create", loggedIn, (req, res, next) => {
   const { name, imageURL, ingredients, instructions } = req.body;
   let thisUser = req.session.currentUser._id;
-  //console.log(thisUser)
-  //console.log(req.body)
-  Recipe.create({ name, imageURL, ingredients, instructions }, { new: true })
+
+  
+  Recipe.create({ name, imageURL, ingredients, instructions })
     .then((newRecipe) => {
-      console.log(newRecipe)
-     
-      console.log(newRecipe._id)
+      
        User.findByIdAndUpdate(thisUser,{$push: {myRecipes: newRecipe._id }}, { new: true })
      
       .then((thisUser) => {
