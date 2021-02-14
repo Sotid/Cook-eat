@@ -21,14 +21,18 @@
 <h4>Instructions:</h4>
 <p>{{oneRecipe.instructions}}</p>
 
-<form>
-<textarea name="textarea" rows="10" cols="50" placeholder="Wanna leave a comment?"></textarea>
-
-  <button type='submit'>Submit</button>
+<form action='/recipes/{{oneRecipe._id}}' method='POST'>
+<textarea name="" rows="10" cols="50" placeholder="Wanna leave a comment?"></textarea>
+  <button name="oneRecipe" type='submit' >Submit</button>
 
 </form>
 
+</div>
 
-
-
+<div>
+  {{#each oneRecipe.reviews}}
+    <ul>
+      <li>{{this}}</li>
+</ul>
+  {{/each}}
 </div>

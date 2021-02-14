@@ -62,16 +62,19 @@ privateRouter.post("/myprofile/edit/:id", loggedIn, (req, res, next) => {
 });
 
 //GET /PRIVATE/FAVORITES renders favorites and my recipes view
+//FAVORITES NOT WORKING
 
 privateRouter.get("/favorites", loggedIn, function (req, res, next) {
   const id = req.session.currentUser._id;
   User.findById(id)
     .populate("myRecipes")
+    .populate("favorites")
     .then((thisUser) => {
       //console.log(thisUser);
-      const arr = { created: thisUser.myRecipes };
-      console.log(arr);
-      res.render("favorites", arr);
+      const mineArr = { created: thisUser.myRecipes };
+      const favArr = { faved: thisUser.favorites };
+
+      res.render("favorites", mineArr);
     });
 });
 

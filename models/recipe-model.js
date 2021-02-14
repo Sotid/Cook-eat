@@ -32,12 +32,7 @@ const recipeSchema = new Schema({
     type: String,
     default: "https://i.postimg.cc/Wbv5LdQR/default.jpg",
   },
-  reviews: [
-    {
-      comments: String,
-      rating: Number,
-    },
-  ],
+  reviews: [String],
 });
 
 // CREATE MODEL
