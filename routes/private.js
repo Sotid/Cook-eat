@@ -76,15 +76,24 @@ privateRouter.get("/favorites/create", loggedIn, function (req, res, next) {
 privateRouter.post("/favorites/create", loggedIn, (req, res, next) => {
   const { name, imageURL, ingredients, instructions } = req.body;
   let thisUser = req.session.currentUser._id;
+  //console.log(thisUser)
+  //console.log(req.body)
   Recipe.create({ name, imageURL, ingredients, instructions }, { new: true })
     .then((newRecipe) => {
-      res.redirect(`/recipes`);
-      User.findById(thisUser).then((thisUser) => {
-        newRecipe.push(thisUser.myRecipes);
+      console.log(newRecipe)
+     
+      console.log(newRecipe._id)
+       User.findByIdAndUpdate(thisUser,{$push: {myRecipes: newRecipe._id }}, { new: true })
+     
+      .then((thisUser) => {
+        res.redirect(`/recipes`);
       });
+
     })
     .catch((err) => console.log(err));
 });
+
+
 // res.render("details")
 //POST /PRIVATE/FAVORITES/:ID deletes existing favorite recipe
 

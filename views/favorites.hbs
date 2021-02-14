@@ -16,7 +16,8 @@
 
 <div id="myrecipes">
     <h1>My created recipes</h1>
-     {{#each newRecipe}}
+     {{#each thisUser.myRecipes}}
+     
     <li>{{this.name}}
 <a href="/recipes/{{this._id}}"><img id="recipe-img" src="{{this.imageURL}}"></a>
 </li>

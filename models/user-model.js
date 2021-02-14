@@ -7,9 +7,18 @@ const userSchema = new Schema({
   username: { type: String, unique: true, required: true },
   email: { type: String, unique: true, required: true },
   password: { type: String, required: true },
-  favorites: { type : mongoose.Schema.Types.ObjectId, ref: 'Recipe'},
-  myRecipes: { type : mongoose.Schema.Types.ObjectId, ref: 'Recipe'},
-  imageURL: { type: String, default:"https://i.postimg.cc/pXhVngg2/avatar.png" },
+  favorites: {
+    type: [{ type: mongoose.Schema.Types.ObjectId, ref: "Recipe" }],
+    default: [],
+  },
+  myRecipes: {
+    type: [{ type: mongoose.Schema.Types.ObjectId, ref: "Recipe" }],
+    default: [],
+  },
+  imageURL: {
+    type: String,
+    default: "https://i.postimg.cc/pXhVngg2/avatar.png",
+  },
 });
 
 // CREATE MODEL
