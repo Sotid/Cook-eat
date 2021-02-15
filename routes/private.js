@@ -68,7 +68,6 @@ privateRouter.get("/favorites", loggedIn, function (req, res, next) {
   const id = req.session.currentUser._id;
   User.findById(id)
     .populate("myRecipes")
-    .populate("favorites")
     .then((thisUser) => {
       //console.log(thisUser);
       const mineArr = { created: thisUser.myRecipes };
@@ -78,37 +77,53 @@ privateRouter.get("/favorites", loggedIn, function (req, res, next) {
     });
 });
 
-//GET /PRIVATE/FAVORITES/CREATE adds new favorite
+//GET /PRIVATE/FAVORITES/CREATE adds new recipe
 privateRouter.get("/favorites/create", loggedIn, function (req, res, next) {
   res.render("create");
 });
 
-//POST /PRIVATE/FAVORITES/CREATE adds new favorite
+//POST /PRIVATE/FAVORITES/CREATE adds new recipe
 privateRouter.post("/favorites/create", loggedIn, (req, res, next) => {
-  const {
+  /*const {
     name,
     imageURL,
     ingredients,
     "ingredients.quantity": ingredientsQuantity,
     instructions,
+  } = req.body;*/
+
+  const {
+    name,
+    imageURL,
+    instructions,
+    ingredientName,
+    quantity,
+    type,
   } = req.body;
+
+  const ingredientObj = {
+    name: ingredientName,
+    quantity: quantity,
+    type: type,
+  }
+
+
+
   let thisUser = req.session.currentUser._id;
   Recipe.create({
     name,
     imageURL,
-    "ingredients.quantity": ingredients,
-    "ingredients.name": ingredients,
-    "ingredients.type": ingredients,
     instructions,
+    ingredients: [ ingredientObj ]
   })
+  
     .then((newRecipe) => {
-      console.log(newRecipe);
       User.findByIdAndUpdate(
         thisUser,
         { $push: { myRecipes: newRecipe._id } },
         { new: true }
       )
-        //.populate("ingredients.quantity"["0"])
+        //.populate("newRecipe")
         .then((thisUser) => {
           res.redirect(`/recipes`);
           res.render("favorites");
@@ -117,17 +132,31 @@ privateRouter.post("/favorites/create", loggedIn, (req, res, next) => {
     .catch((err) => console.log(err));
 });
 
-// res.render("details")
 //POST /PRIVATE/FAVORITES/:ID deletes existing favorite recipe
 
-//GET /PRIVATE/MYRECIPES renders myrecipes view
+//POST /PRIVATE/FAVORITES/:ID/ADD delete selected myrecipe
 
-//GET /PRIVATE/MYRECIPES/ADD add new recipe
 
-//POST /PRIVATE/MYRECIPES/ADD renders my recipes updated view
+//POST /PRIVATE/MYRECIPES/ADD Adds a new recipe to favorites and renders favorites updated view
 
-//POST /PRIVATE/MYRECIPES/:ID delete selected myrecipe
+privateRouter.post("/favorites/:recipeId/add", function (req, res, next) {
 
-// POST PRIVATE/RECIPES/:id adds new review and renders the same page (updated)
+  const id = req.session.currentUser._id;
+  
+    const { recipeId } = req.params;
+    
+        User.findByIdAndUpdate(id,
+            { $push: { favorites: recipeId } }  )
+            .populate("favorites")
+           
+            .then(()=> recipeId.save)
+
+            .then(() =>
+            res.redirect("/private/favorites"))
+           
+        });
+
+
+
 
 module.exports = privateRouter;

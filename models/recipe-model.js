@@ -17,7 +17,7 @@ const recipeSchema = new Schema({
           "Condiments",
           "Drinks",
           "Vegetables",
-          "Cereals and legumes",
+          "Cereals and Legumes",
           "Flours",
           "Rice and pasta",
           "Soups and Creams",

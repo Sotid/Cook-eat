@@ -15,30 +15,33 @@ recipesRouter.get("/", function (req, res, next) {
 });
 
 // GET/RECIPES  ADDS A FAVORITE TO USERS FAVS ARRAY
-recipesRouter.get("/", (req, res, next) => {
-  let thisUser = req.session.currentUser._id;
-  let recipeId = req.params.id;
-  Recipe.findById(recipeId)
-    .then((thisRecipe) => {
-      User.findByIdAndUpdate(
-        thisUser,
-        { $push: { favorites: thisRecipe._id } },
-        { new: true }
-      )
-        //.populate("ingredients.quantity"["0"])
-        .then((thisUser) => {
-          res.redirect(`/recipes`);
-          res.render("favorites");
-        });
-    })
-    .catch((err) => console.log(err));
-});
+// recipesRouter.get("/", (req, res, next) => {
+//   let thisUser = req.session.currentUser._id;
+//   let recipeId = req.params.id;
+//   Recipe.findById(recipeId)
+//     .then((thisRecipe) => {
+//       User.findByIdAndUpdate(
+//         thisUser,
+//         { $push: { favorites: thisRecipe._id } },
+//         { new: true }
+//       )
+//         //.populate("ingredients.quantity"["0"])
+//         .then((thisUser) => {
+//           res.redirect(`/recipes`);
+//           res.render("favorites");
+//         });
+//     })
+//     .catch((err) => console.log(err));
+// });
 // GET /RECIPES[?q=str] - Main view random recipes and search result
 
 // GET /RECIPES/:id renders details of chosen recipe
 
 recipesRouter.get("/:recipeId", function (req, res, next) {
   const { recipeId } = req.params;
+
+  console.log(recipeId, "hola")
+
   Recipe.findById(recipeId).then((oneRecipe) => {
     res.render("details", { oneRecipe: oneRecipe });
   });
@@ -50,6 +53,11 @@ recipesRouter.post("/:recipeId", function (req, res, next) {
   const { recipeId } = req.params;
   const reviews = req.body.review;
 
+
+console.log(recipeId, "hello")
+
+
+
   Recipe.findByIdAndUpdate(
     recipeId,
     { $push: { reviews: reviews } },
@@ -58,5 +66,13 @@ recipesRouter.post("/:recipeId", function (req, res, next) {
     res.redirect(`/recipes/${recipeId}`);
   });
 });
+
+
+
+
+   
+
+
+
 
 module.exports = recipesRouter;
