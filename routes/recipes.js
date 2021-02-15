@@ -14,26 +14,10 @@ recipesRouter.get("/", function (req, res, next) {
   });
 });
 
-// GET/RECIPES  ADDS A FAVORITE TO USERS FAVS ARRAY
-// recipesRouter.get("/", (req, res, next) => {
-//   let thisUser = req.session.currentUser._id;
-//   let recipeId = req.params.id;
-//   Recipe.findById(recipeId)
-//     .then((thisRecipe) => {
-//       User.findByIdAndUpdate(
-//         thisUser,
-//         { $push: { favorites: thisRecipe._id } },
-//         { new: true }
-//       )
-//         //.populate("ingredients.quantity"["0"])
-//         .then((thisUser) => {
-//           res.redirect(`/recipes`);
-//           res.render("favorites");
-//         });
-//     })
-//     .catch((err) => console.log(err));
-// });
+
 // GET /RECIPES[?q=str] - Main view random recipes and search result
+
+recipesRouter.get("/show?")
 
 // GET /RECIPES/:id renders details of chosen recipe
 
