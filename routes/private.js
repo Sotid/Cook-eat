@@ -31,6 +31,7 @@ privateRouter.get("/myprofile", loggedIn, (req, res, next) => {
 });
 
 //GET /PRIVATE/MYPROFILE/EDIT renders edit-profile view
+
 privateRouter.get("/myprofile/edit/:id", loggedIn, (req, res, next) => {
   const id = req.session.currentUser._id;
   User.findById(id)
@@ -62,7 +63,6 @@ privateRouter.post("/myprofile/edit/:id", loggedIn, (req, res, next) => {
 });
 
 //GET /PRIVATE/FAVORITES renders favorites and my recipes view
-//FAVORITES NOT WORKING
 
 privateRouter.get("/favorites", loggedIn, function (req, res, next) {
   const id = req.session.currentUser._id;
@@ -75,12 +75,15 @@ privateRouter.get("/favorites", loggedIn, function (req, res, next) {
     });
 });
 
-//GET /PRIVATE/FAVORITES/CREATE adds new recipe
+//GET /PRIVATE/FAVORITES/CREATE renders form to create new recipe
+
 privateRouter.get("/favorites/create", loggedIn, function (req, res, next) {
   res.render("create");
 });
 
-//POST /PRIVATE/FAVORITES/CREATE adds new recipe to the user's My Recipes List
+//POST /PRIVATE/FAVORITES/CREATE creates new recipe in DB
+// appears in general recipes search and My Recipes private view
+
 privateRouter.post("/favorites/create", loggedIn, (req, res, next) => {
   const {
     name,
@@ -128,22 +131,27 @@ privateRouter.post("/favorites/:recipeId/delete-mine", (req, res, next) => {
     .catch((err) => next());
 });
 
-//POST /PRIVATE/FAVORITES/RECIPE:ID/ADD Adds a new recipe to favorites and renders favorites updated view
+//POST /PRIVATE/FAVORITES/RECIPE:ID/ADD Adds a new recipe to user's favorites and renders favorites view
 
 privateRouter.post("/favorites/:recipeId/add", function (req, res, next) {
   const id = req.session.currentUser._id;
 
   const { recipeId } = req.params;
 
-  User.findByIdAndUpdate(id, { $push: { favorites: recipeId } }, { new: true })
-    // .populate("favorites")
+  User.findByIdAndUpdate(
+    id,
+    { $addToSet: { favorites: recipeId } },
+    { new: true }
+  )
     .then(() => recipeId.save)
     .then(() => res.redirect("/private/favorites"));
 });
 
 module.exports = privateRouter;
 
-//POST /PRIVATE/FAVORITES/RECIPE:ID/DELETE-FAV Removes a favorite from the user's array (still available in the DB)
+//POST /PRIVATE/FAVORITES/RECIPE:ID/DELETE-FAV Removes a favorite from the user's array
+// The recipe is NOT REMOVED from the DB
+
 privateRouter.post(
   "/favorites/:recipeId/delete-fav",
   function (req, res, next) {
