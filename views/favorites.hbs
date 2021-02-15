@@ -2,30 +2,45 @@
 
 
 <div id="favorites">
+
     <h1>Favorite Recipes</h1>
 <ul>
-{{#each faved}}
-<li>
-{{this.name}}
-<a href="/recipes/{{this._id}}"><img id="recipe-img" src="{{this.imageURL}}"></a>
-</li>
-{{/each}}
-</ul>
+   {{#each faved}}
+    <li>
+     {{this.name}}
+   <a href="/recipes/{{this._id}}"><img id="recipe-img" src="{{this.imageURL}}"></a>
+   </li>
+
+   <form action='/private/favorites/{{this._id}}/delete-fav' method='POST'>
+   <button type="submit" class="delete" name="delete-fav"><img src="/images/trash3.png"></button>
+     </form>
+
+    {{/each}}
+    
+     </ul>
+
 </div>
 
 
 <div id="myrecipes">
     <h1>My created recipes</h1>
+
+      <a href="/private/favorites/create"><button>Add a new recipe</button></a>
+    
      {{#each created}}
      
     <li>{{this.name}}
 <a href="/recipes/{{this._id}}"><img id="recipe-img" src="{{this.imageURL}}"></a>
 </li>
 
+
+<form action='/private/favorites/{{this._id}}/delete-mine' method='POST'>
+   <button type="submit" class="delete" name="delete-mine"><img src="/images/trash2.png"></button>
+</form>
+
 {{/each}}
 
-    <a href="/private/favorites/create"><button>Add a new recipe</button></a>
-    
+  
 </div>
 
 
