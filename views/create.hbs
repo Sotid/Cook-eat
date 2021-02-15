@@ -1,0 +1,48 @@
+<form action='/private/favorites/create' method='POST'>
+  <h2>What are you cooking today?</h2>
+
+  
+  <label for='name'><h4>Title:</h4></label>
+  <input type='text' name='name'>
+
+  <h4>Photo:</h4>
+  <label for='imageURL'>Add a nice picture</label>
+  <input type='text' name='imageURL'>
+
+  <h4>Ingredients:</h4>
+   <div id="new-ingredient">
+  <ul>
+  <li><label for='name'>Ingredient</label>
+  <input type='text' name='ingredientName'>
+
+    <label for='quantity'>Quantity</label>
+  <input type='text' name='quantity'>
+
+    <label for='type'>Type</label>
+<select name="type" value="Type:">
+  <option value="Cereals and Legumes">Cereals and legumes</option>
+  <option value="Condiments">Condiments</option>
+  <option value="Dairy">Dairy</option>
+  <option value="Drinks">Drinks</option>
+  <option value="Fish">Fish</option>
+   <option value="Flours">Flours</option>
+  <option value="Fruits">Fruits</option>
+  <option value="Meat">Meat</option>
+  <option value="Rice and Pasta">Rice and Pasta</option>
+  <option value="Soups and Creams">Soups and Creams</option>
+  <option value="Vegetables">Vegetables</option>
+
+</select></li>
+
+  <button id="add-more">Add more</button>
+  
+</ul>
+</div>
+<h4>Instructions:</h4>
+
+    <label for='instructions'></label>
+<textarea name="instructions" rows="10" cols="50" placeholder="How to make it yummy?"></textarea>
+
+  <a href="/recipes/{{newRecipe._id}}"><button type='create'>Create!</button></a>
+
+</form>

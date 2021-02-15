@@ -4,5 +4,14 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+.recipe-img {
+  width: 200px;
+  height: auto;
+}
+#details-photo {
+  width: 700px;
+  height: auto;
 }

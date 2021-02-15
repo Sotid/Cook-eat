@@ -38,30 +38,28 @@ Search platform for recipes based on the ingredients you have in your fridge. Yo
 
 
 
-| **Method** | **Route**                | **Description**                                              | Request - Bo                                                 |
-| ---------- | ------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `GET`      | `/`                      | Renders `login` form view.                                   |                                                              |
-| `POST`     | /                        | Sends Login form data to the server.                         | { username, password }                                       |
-| `GET`      | `/signup`                | Renders `signup` form view.                                  |                                                              |
-| `POST`     | `/signup`                | Sends Signup info to the server and creates user in the DB.  | { username, email, password }                                |
-| GET        | /recipes[?q=str]         | Renders the main view and search result page                 |                                                              |
-|            |                          |                                                              |                                                              |
-| GET        | /recipes/:id             | Renders the details of the recipe view                       |                                                              |
-| `GET`      | `/private/favorites`     | Private route. Render the `favorites` view.                  |                                                              |
-| `POST`     | `/private/favorites/`    | Private route. Adds a new favorite for the current user.     | { recipeId }                                                 |
-| `P`OST     | /private/recipes/:id     | Adds new review and renders the same page with updated info. | {comments, rating}                                           |
-| GET        | /private/profile         | Private route.Renders to personal profile                    |                                                              |
-| `GET`      | `/private/edit-profile`  | Private route. Renders `edit-profile` form view.             |                                                              |
-| POST       | /private/edit-profile    | Private route. Send updated data to the server.              | {name, email, password, image}                               |
-|            |                          |                                                              |                                                              |
-|            |                          |                                                              |                                                              |
-| POST       | `/private/favorites/:id` | Private route. Deletes the existing favorite from the current user. |                                                              |
-| GET        | /private/myrecipes       | Private route.Renders my recipes view.                       |                                                              |
-| GET        | `/private/myrecipes/`add | Private route. The current user can add a new recipe.        |                                                              |
-| `POST`     | /private/myrecipes/add   | Private route. Sends the data and renders  updated view.     | {name, ingredients { quantity,   name,  type  },  instructions,  imageURL} |
-| POST       | /private/myrecipes/:id   | Private route.Deletes the recipe from the users profile.     |                                                              |
-| GET        | /logout                  | Logout out user and redirect login view.                     |                                                              |
-|            |                          |                                                              |                                                              |
+| **Method** | **Route**                | **Description**                                              | Request - Bo                  |
+| ---------- | ------------------------ | ------------------------------------------------------------ | ----------------------------- |
+| `GET`      | `/`                      | Renders `login` form view.                                   |                               |
+| `POST`     | /                        | Sends Login form data to the server.                         | { username, password }        |
+| `GET`      | `/signup`                | Renders `signup` form view.                                  |                               |
+| `POST`     | `/signup`                | Sends Sign Up info to the server and creates user in the DB. | { username, email, password } |
+| GET        | /recipes                 | Renders the main view                                        |                               |
+| GET        | /recipes                 | Renders the search result page                               |                               |
+| GET        | /recipes/:id             | Renders the details of the recipe view                       |                               |
+| `GET`      | `/private/favorites`     | Private route. Render the `favorites` view.                  |                               |
+| `POST`     | `/private/favorites/`    | Private route. Adds a new favorite for the current user.     | { name, image }               |
+| `P`OST     | /recipes/:id             | Adds new review and renders the same page with updated info. |                               |
+| GET        | /private/myprofile        | Private route.Renders to personal profile                          |                               |
+| `GET`      | `/private/myprofile/edit`  | Private route. Renders `edit-profile` form view.             |                               |
+| POST       | /private/myprofile/edit    | Private route. Send updated data to the server.              |                               |                               |
+| POST       | `/private/favorites/:id` | Private route. Deletes the existing favorite from the current user. |                               |
+| GET        | private/myrecipes        | Private route.Renders my recipes view.                       |                               |
+| GET        | `/private/myrecipes/`add | Private route. The current user can add a new recipe.        |                               |
+| `POST`     | /private/myrecipes/add   | Private route. Renders my recipes upadted view.              |                               |
+| POST       | /private/myrecipes/:id   | Private route.Deletes the recipe from the users profile.     |                               |
+| GET        | /logout                  | Logout out user and renders login view.                      |                               |
+|            |                          |                                                              |                               |
 
 ## Models
 
