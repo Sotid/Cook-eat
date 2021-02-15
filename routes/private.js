@@ -68,12 +68,10 @@ privateRouter.get("/favorites", loggedIn, function (req, res, next) {
   const id = req.session.currentUser._id;
   User.findById(id)
     .populate("myRecipes")
+    .populate("favorites")
     .then((thisUser) => {
-      //console.log(thisUser);
-      const mineArr = { created: thisUser.myRecipes };
-      const favArr = { faved: thisUser.favorites };
-
-      res.render("favorites", mineArr);
+      const favArr = { created: thisUser.myRecipes, faved: thisUser.favorites };
+      res.render("favorites", favArr);
     });
 });
 
@@ -84,14 +82,6 @@ privateRouter.get("/favorites/create", loggedIn, function (req, res, next) {
 
 //POST /PRIVATE/FAVORITES/CREATE adds new recipe
 privateRouter.post("/favorites/create", loggedIn, (req, res, next) => {
-  /*const {
-    name,
-    imageURL,
-    ingredients,
-    "ingredients.quantity": ingredientsQuantity,
-    instructions,
-  } = req.body;*/
-
   const {
     name,
     imageURL,
@@ -105,18 +95,16 @@ privateRouter.post("/favorites/create", loggedIn, (req, res, next) => {
     name: ingredientName,
     quantity: quantity,
     type: type,
-  }
-
-
+  };
 
   let thisUser = req.session.currentUser._id;
   Recipe.create({
     name,
     imageURL,
     instructions,
-    ingredients: [ ingredientObj ]
+    ingredients: [ingredientObj],
   })
-  
+
     .then((newRecipe) => {
       User.findByIdAndUpdate(
         thisUser,
@@ -136,27 +124,17 @@ privateRouter.post("/favorites/create", loggedIn, (req, res, next) => {
 
 //POST /PRIVATE/FAVORITES/:ID/ADD delete selected myrecipe
 
-
 //POST /PRIVATE/MYRECIPES/ADD Adds a new recipe to favorites and renders favorites updated view
 
 privateRouter.post("/favorites/:recipeId/add", function (req, res, next) {
-
   const id = req.session.currentUser._id;
-  
-    const { recipeId } = req.params;
-    
-        User.findByIdAndUpdate(id,
-            { $push: { favorites: recipeId } }  )
-            .populate("favorites")
-           
-            .then(()=> recipeId.save)
 
-            .then(() =>
-            res.redirect("/private/favorites"))
-           
-        });
+  const { recipeId } = req.params;
 
-
-
+  User.findByIdAndUpdate(id, { $push: { favorites: recipeId } }, { new: true })
+    // .populate("favorites")
+    .then(() => recipeId.save)
+    .then(() => res.redirect("/private/favorites"));
+});
 
 module.exports = privateRouter;
