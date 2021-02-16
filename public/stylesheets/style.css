@@ -1,21 +1,32 @@
+/* COLORS
+BODY background-color: #8abcc023;
+Nav background:  #f9a66c
+boxes backgound: rgba(60, 216, 169, 0.288);
+boxes border: orange
+
+*/
+
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   margin-top: 10rem;
+  background-color: #8abcc023;
 }
 
 a {
-  color: #00b7ff;
+  text-decoration: none;
 }
 
 nav {
   display: flex;
+  background-color: #f9a66c;
   align-items: center;
+  color: rgb(21, 153, 153);
   justify-content: space-between;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 8px 15px rgb(21, 153, 153);
 }
 
 nav ul {
@@ -23,10 +34,20 @@ nav ul {
   flex-direction: row;
   flex-wrap: initial;
   margin-top: 2rem;
+  list-style: none;
 }
 
 nav ul li {
   margin: 0 5rem;
+  color: rgb(21, 153, 153);
+  font-size: 1.5rem;
+}
+
+.recipe-container {
+  border: 3.5px solid orange;
+  background-color: rgba(60, 216, 169, 0.288);
+  margin: 30px 0;
+  border-radius: 25px;
 }
 .logo {
   width: 6rem;
@@ -34,7 +55,7 @@ nav ul li {
   height: auto;
 }
 .recipe-img {
-  width: 200px;
+  width: 25vw;
   height: auto;
 }
 #details-photo {

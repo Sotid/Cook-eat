@@ -19,12 +19,18 @@ recipesRouter.get("/show", function (req, res, next) {
 
 recipesRouter.get("/", function (req, res, next) {
   const searchIngredient = req.query.search;
-  Recipe.find({ "ingredients.name": [searchIngredient] }).then((found) => {
-    const data = {
-      found: found,
-    };
-    res.render("search", data);
-  });
+  console.log(searchIngredient);
+  if (req.query.search) {
+    const searchIngredient = req.query.search.split(", ");
+    Recipe.find({ "ingredients.name": { $all: searchIngredient } }).then(
+      (found) => {
+        const data = {
+          found: found,
+        };
+        res.render("search", data);
+      }
+    );
+  }
 });
 
 // GET /RECIPES/:id renders details view of chosen recipe

@@ -11,9 +11,12 @@
 <h2>Take a look and click to display details</h2>
 
 
-<ul>
+
+<ul >
 {{#each allRecipes}}
-<li>
+
+
+<li class="recipe-container">
 {{this.name}}
 <a href="/recipes/{{this._id}}">
   <img class="recipe-img" src="{{this.imageURL}}">
@@ -22,5 +25,7 @@
 <button  class="transparent-btn"  name="favs" ><img src="/images/fav.png"></button>
 </form>
 </li>
+
+</div>
 {{/each}}
 </ul>
