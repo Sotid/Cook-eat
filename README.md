@@ -26,7 +26,7 @@ Search platform for recipes based on the ingredients you have in your fridge. Yo
 | `GET`      | `/signup`                 | Renders `signup` form view.                                           |                               |
 | `POST`     | `/signup`                 | Sends `signup` info to the server and creates user in the DB.         | { username, email, password } |
 | `GET`      | `/logout`                 | Destroys current session.                                             |                               |
-| `GET`      | `/[?q=str]`               | Renders the main recipes view. Allows for custom search               |                               |
+| `GET`      | `/show`                   | Renders the main recipes view. Allows for custom search               |                               |
 | `GET`      | `/recipes/:id`            | Renders the details recipe view                                       |                               |
 | `POST`     | `/recipes/:id`            | Posts a review in a recipe                                            |                               |
 | `GET`      | `/private/myprofile`      | Private route. Renders personal profile                               |                               |

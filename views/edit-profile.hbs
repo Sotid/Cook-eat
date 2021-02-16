@@ -3,7 +3,7 @@
    <img id="avatar" src={{thisUser.imageURL}}>
 
      
-<form action='/private/myprofile/edit/{{thisUser._id}}' method='POST'>
+<form action='/private/myprofile/edit/{{thisUser._id}}' method='POST' enctype="multipart/form-data">
 
 
   <input type='text' name='username' value="{{thisUser.username}}">
@@ -12,10 +12,10 @@
   <input type='text' name='email' value="{{thisUser.email}}">
 
   <label for='password'>Password</label>
-  <input type='text' name='password' value="New password">
+  <input type='password' name='password' value="{{thisUser.password}}" >
 
-   <label for='password'>Avatar</label>
-  <input type='text' name='avatar' value="paste a URL">
+   <label for='avatar'>Avatar</label>
+  <input type='file' name='image'>
 
   <a href="/private/myprofile"><button type='submit'>Submit</button></a>
 

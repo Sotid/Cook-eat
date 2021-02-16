@@ -41,3 +41,8 @@ nav ul li {
   width: 700px;
   height: auto;
 }
+
+.transparent-btn {
+  background-color: transparent;
+  border: 1px solid black;
+}

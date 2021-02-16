@@ -4,9 +4,9 @@ const Recipe = require("../models/recipe-model");
 const User = require("../models/user-model");
 const bodyParser = require("body-parser");
 
-//GET / renders main view with a list of recipes in DB
+//GET /show renders main view with a list of recipes in DB
 
-recipesRouter.get("/", function (req, res, next) {
+recipesRouter.get("/show", function (req, res, next) {
   Recipe.find().then((allRecipes) => {
     const data = {
       allRecipes: allRecipes,
@@ -15,10 +15,17 @@ recipesRouter.get("/", function (req, res, next) {
   });
 });
 
-// GET /RECIPES[?q=str] - Main view random recipes and search result.
-// STILL TO FIGURE OUT: RENDER NEW RECIPES WITH THE SEARCH RESULTS
+// GET /RECIPES[?q=str] - Render search results.
 
-recipesRouter.get("/show?");
+recipesRouter.get("/", function (req, res, next) {
+  const searchIngredient = req.query.search;
+  Recipe.find({ "ingredients.name": [searchIngredient] }).then((found) => {
+    const data = {
+      found: found,
+    };
+    res.render("search", data);
+  });
+});
 
 // GET /RECIPES/:id renders details view of chosen recipe
 

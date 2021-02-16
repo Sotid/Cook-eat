@@ -44,7 +44,7 @@ authRouter.post("/login", (req, res, next) => {
       const passwordCorrect = bcrypt.compareSync(password, user.password);
       if (passwordCorrect) {
         req.session.currentUser = user;
-        res.redirect("/recipes");
+        res.redirect("/recipes/show");
       } else {
         res.render("auth-views/login-form", {
           layout: false,
@@ -96,10 +96,9 @@ authRouter.post("/signup", (req, res, next) => {
       User.create({ username, email, password: hashedPassword })
         .then((newUser) => {
           req.session.currentUser = user;
-          res.redirect("/recipes");
+          res.redirect("/recipes/show");
         })
         .catch((err) => {
-          console.log(err);
           res.render("auth-views/signup-form", {
             layout: false,
             errorMessage: "Don't be a stranger! Please identify yourself",
