@@ -107,11 +107,6 @@ privateRouter.post(
       type,
     } = req.body;
 
-    const ingredientObj = {
-      name: ingredientName,
-      quantity: quantity,
-      type: type,
-    };
     let imageUrl;
     if (req.file) {
       imageUrl = req.file.path;
@@ -119,12 +114,37 @@ privateRouter.post(
       imageUrl = "https://i.postimg.cc/Wbv5LdQR/default.jpg";
     }
 
+    let ingredients;
+    if (
+      Array.isArray(ingredientName) &&
+      Array.isArray(quantity) &&
+      Array.isArray(type)
+    ) {
+      // Create an array with multiple ingredients
+      ingredients = ingredientName.map((ingredientStr, i) => {
+        const ingredientObj = {
+          name: ingredientStr,
+          quantity: quantity[i],
+          type: type[i],
+        };
+        return ingredientObj;
+      });
+    } else {
+      // Create array with only 1 ingredient
+      const ingredientObj = {
+        name: ingredientName,
+        quantity: quantity,
+        type: type,
+      };
+      ingredients = [ingredientObj];
+    }
+
     let thisUser = req.session.currentUser._id;
     Recipe.create({
       name,
       imageURL: imageUrl,
       instructions,
-      ingredients: [ingredientObj],
+      ingredients,
     })
 
       .then((newRecipe) => {
@@ -134,7 +154,6 @@ privateRouter.post(
           { new: true }
         ).then((thisUser) => {
           res.redirect(`/recipes/show`);
-          res.render("favorites");
         });
       })
       .catch((err) => next());
