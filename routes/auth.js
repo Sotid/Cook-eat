@@ -6,19 +6,19 @@ const zxcvbn = require("zxcvbn");
 
 const saltRounds = 10;
 
-//GET LOGIN
+//GET / - renders login view
 
 authRouter.get("/", function (req, res, next) {
   res.render("auth-views/login-form", { layout: false });
 });
 
-//POST LOGIN
+//POST /LOGIN - creates a new session if credentials are correct
+//Renders recipes view
 
 authRouter.post("/login", (req, res, next) => {
   const { username, password } = req.body;
 
   //Checks if credentials are empty
-
   if (username === "" || password === "") {
     res.render("auth-views/login-form", {
       layout: false,
@@ -28,8 +28,7 @@ authRouter.post("/login", (req, res, next) => {
     return;
   }
 
-  //Checks if username exists
-
+  //Checks if username exists in DB
   User.findOne({ username })
     .then((user) => {
       if (!user) {
@@ -42,12 +41,10 @@ authRouter.post("/login", (req, res, next) => {
       }
 
       //Checks password
-
       const passwordCorrect = bcrypt.compareSync(password, user.password);
-
       if (passwordCorrect) {
         req.session.currentUser = user;
-        res.redirect("/recipes");
+        res.redirect("/recipes/show");
       } else {
         res.render("auth-views/login-form", {
           layout: false,
@@ -58,13 +55,14 @@ authRouter.post("/login", (req, res, next) => {
     .catch((err) => next(err));
 });
 
-// GET SIGNUP
+// GET /SIGNUP renders signup form view
 
 authRouter.get("/signup", (req, res, next) => {
   res.render("auth-views/signup-form", { layout: false });
 });
 
-//POST SIGNUP
+//POST /SIGNUP creates new user
+
 authRouter.post("/signup", (req, res, next) => {
   const { username, email, password } = req.body;
 
@@ -78,7 +76,7 @@ authRouter.post("/signup", (req, res, next) => {
     return;
   }
 
-  // Check if the username already exists
+  // Checks if the username already exists
   User.findOne({ username })
     .then((user) => {
       if (user !== null) {
@@ -94,27 +92,23 @@ authRouter.post("/signup", (req, res, next) => {
       const salt = bcrypt.genSaltSync(saltRounds);
       const hashedPassword = bcrypt.hashSync(password, salt);
 
-      // Creates new user in database and cookie.Automatically logs in user
-
+      // Creates new user in database and cookie. Automatically logs in user
       User.create({ username, email, password: hashedPassword })
         .then((newUser) => {
           req.session.currentUser = user;
-          res.redirect("/recipes");
+          res.redirect("/recipes/show");
         })
         .catch((err) => {
-          console.log(err);
           res.render("auth-views/signup-form", {
             layout: false,
             errorMessage: "Don't be a stranger! Please identify yourself",
           });
         });
-
-      // > Redirect the user
     })
     .catch((err) => next(err));
 });
 
-//GET LOGOUT
+//GET /LOGOUT destroys current session. Redirects to login view
 
 authRouter.get("/logout", (req, res, next) => {
   req.session.destroy(function (err) {
@@ -125,4 +119,5 @@ authRouter.get("/logout", (req, res, next) => {
     }
   });
 });
+
 module.exports = authRouter;

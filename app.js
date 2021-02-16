@@ -7,8 +7,9 @@ const logger = require("morgan");
 const path = require("path");
 const hbs = require("hbs");
 const cookieParser = require("cookie-parser");
-const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+
 
 //Session connection
 const session = require("express-session");

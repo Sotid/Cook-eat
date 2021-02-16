@@ -1,4 +1,4 @@
-<form action='/private/favorites/create' method='POST'>
+<form action='/private/favorites/create' method='POST' enctype="multipart/form-data">
   <h2>What are you cooking today?</h2>
 
   
@@ -7,9 +7,11 @@
 
   <h4>Photo:</h4>
   <label for='imageURL'>Add a nice picture</label>
-  <input type='text' name='imageURL'>
+  <input type='file' name='image'>
 
   <h4>Ingredients:</h4>
+
+
    <div id="new-ingredient">
   <ul>
   <li><label for='name'>Ingredient</label>
@@ -34,10 +36,13 @@
 
 </select></li>
 
-  <button id="add-more">Add more</button>
   
 </ul>
 </div>
+
+<button type="button" id="add-more" >Add more</button>
+
+
 <h4>Instructions:</h4>
 
     <label for='instructions'></label>
@@ -48,4 +53,4 @@
 </form>
 
 
-<script src="/javascripts/createJS.js"></script>
+<script src="/javascripts/function.js"></script>

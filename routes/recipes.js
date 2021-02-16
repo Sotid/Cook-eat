@@ -4,8 +4,9 @@ const Recipe = require("../models/recipe-model");
 const User = require("../models/user-model");
 const bodyParser = require("body-parser");
 
-//Get recipes pages
-recipesRouter.get("/", function (req, res, next) {
+//GET /show renders main view with a list of recipes in DB
+
+recipesRouter.get("/show", function (req, res, next) {
   Recipe.find().then((allRecipes) => {
     const data = {
       allRecipes: allRecipes,
@@ -14,33 +15,39 @@ recipesRouter.get("/", function (req, res, next) {
   });
 });
 
+// GET /RECIPES[?q=str] - Render search results.
 
-// GET /RECIPES[?q=str] - Main view random recipes and search result
+recipesRouter.get("/", function (req, res, next) {
+  const searchIngredient = req.query.search;
+  console.log(searchIngredient);
+  if (req.query.search) {
+    const searchIngredient = req.query.search.split(", ");
+    Recipe.find({ "ingredients.name": { $all: searchIngredient } }).then(
+      (found) => {
+        const data = {
+          found: found,
+        };
+        res.render("search", data);
+      }
+    );
+  }
+});
 
-recipesRouter.get("/show?")
-
-// GET /RECIPES/:id renders details of chosen recipe
+// GET /RECIPES/:id renders details view of chosen recipe
 
 recipesRouter.get("/:recipeId", function (req, res, next) {
   const { recipeId } = req.params;
-
-  console.log(recipeId, "hola")
 
   Recipe.findById(recipeId).then((oneRecipe) => {
     res.render("details", { oneRecipe: oneRecipe });
   });
 });
 
-// POST /RECIPES/:id posts a review in a recipes' id
+// POST /RECIPES/:id posts a review in a recipe. Renders same page with updated reviews
 
 recipesRouter.post("/:recipeId", function (req, res, next) {
   const { recipeId } = req.params;
   const reviews = req.body.review;
-
-
-console.log(recipeId, "hello")
-
-
 
   Recipe.findByIdAndUpdate(
     recipeId,
@@ -50,13 +57,5 @@ console.log(recipeId, "hello")
     res.redirect(`/recipes/${recipeId}`);
   });
 });
-
-
-
-
-   
-
-
-
 
 module.exports = recipesRouter;
