@@ -1,17 +1,13 @@
-/* COLORS
-BODY background-color: #8abcc023;
-Nav background:  #f9a66c
-boxes backgound: rgba(60, 216, 169, 0.288);
-boxes border: orange
-*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap");
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   margin-top: 10rem;
   background-color: #8abcc023;
 }
 a {
   text-decoration: none;
 }
+
 /* NAVBAR */
 nav {
   display: flex;
@@ -86,20 +82,26 @@ nav ul li {
 }
 /*  RECIPES GENERAL - MORE TO ADD */
 .recipe-container {
+  display: flex;
+  flex-wrap: wrap;
   border: 3.5px solid orange;
   background-color: rgba(60, 216, 169, 0.288);
-  margin: 30px 0;
   border-radius: 25px;
-  width: 100%;
-  height: auto;
+  margin: 5rem;
+  text-align: center;
+}
+
+.recipe-box {
+  width: 330px;
+  padding: 3rem;
 }
 .recipe-img {
-  width: 20rem;
-  height: 20rem;
+  width: 300px;
+  height: 300px;
   object-fit: cover;
 }
-#details-photo {
-  width: 700px;
+.details-photo {
+  width: 50rem;
   height: auto;
 }
 .transparent-btn {
@@ -110,17 +112,24 @@ nav ul li {
 #favorites-container {
   top: 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+}
+
+.favs-box {
   text-align: center;
 }
-.myfavorites {
-  width: 30%;
-  height: 50%;
+
+#myrecipes {
+  width: 40%;
+  flex-direction: column;
+  align-content: space-around;
 }
-.myrecipes {
-  width: 30%;
-  height: 50%;
+#myfavorites {
+  width: 40%;
+  flex-direction: column;
+  align-content: space-around;
 }
+
 #addNew {
   height: 50px;
 }
@@ -129,3 +138,5 @@ nav ul li {
   height: auto;
 }
 
+.favs-title {
+}
