@@ -1,13 +1,12 @@
-<p>
-<form action='/recipes' method='GET'>
-  <div>
-  <input type='text' name='search' placeholder= "Search by ingredients...">
-  <input type='submit' value='search'>
- </div>
+<div class="search">
+<form  action='/recipes' method='GET'>
+  <input class="search-bar" type='text' name='search' placeholder= "Search by ingredients...">
+ <button class="search-btn" type='submit'><img class="glass" src="/images/glass.png" alt=""></button>
 </form>
-</p>
+ </div>
 <ul>
 {{#each found}}
+<div class="recipe-container">
 <li>
 {{this.name}}
 <a href="/recipes/{{this._id}}">
@@ -17,5 +16,6 @@
 <button  class="transparent-btn"  name="favs" ><img src="/images/fav.png"></button>
 </form>
 </li>
+</div>
 {{/each}}
 </ul>

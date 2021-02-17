@@ -3,19 +3,16 @@ BODY background-color: #8abcc023;
 Nav background:  #f9a66c
 boxes backgound: rgba(60, 216, 169, 0.288);
 boxes border: orange
-
 */
-
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   margin-top: 10rem;
   background-color: #8abcc023;
 }
-
 a {
   text-decoration: none;
 }
-
+/* NAVBAR */
 nav {
   display: flex;
   background-color: #f9a66c;
@@ -28,7 +25,6 @@ nav {
   right: 0;
   box-shadow: 0px 8px 15px rgb(21, 153, 153);
 }
-
 nav ul {
   display: flex;
   flex-direction: row;
@@ -36,34 +32,100 @@ nav ul {
   margin-top: 2rem;
   list-style: none;
 }
-
 nav ul li {
   margin: 0 5rem;
   color: rgb(21, 153, 153);
   font-size: 1.5rem;
-}
-
-.recipe-container {
-  border: 3.5px solid orange;
-  background-color: rgba(60, 216, 169, 0.288);
-  margin: 30px 0;
-  border-radius: 25px;
 }
 .logo {
   width: 6rem;
   float: left;
   height: auto;
 }
-.recipe-img {
-  width: 25vw;
+.mini-avatar {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  object-fit: cover;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+/* SEARCHBAR */
+.search {
+  position: relative;
+  text-align: center;
+}
+.search-bar {
+  float: center;
+  width: 40%;
+  border: 3px solid #00b4cc;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px;
+  color: #9dbfaf;
+}
+.search-btn {
+  position: absolute;
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00b4cc;
+  background: #00b4cc;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.search-btn:after {
+  color: #023238;
+}
+.glass {
+  max-width: 100%;
+  max-height: 100%;
+  display: block; /* remove extra space below image */
+}
+/*  RECIPES GENERAL - MORE TO ADD */
+.recipe-container {
+  border: 3.5px solid orange;
+  background-color: rgba(60, 216, 169, 0.288);
+  margin: 30px 0;
+  border-radius: 25px;
+  width: 100%;
   height: auto;
+}
+.recipe-img {
+  width: 20rem;
+  height: 20rem;
+  object-fit: cover;
 }
 #details-photo {
   width: 700px;
   height: auto;
 }
-
 .transparent-btn {
   background-color: transparent;
   border: 1px solid transparent;
 }
+/* FAVORITES VIEW */
+#favorites-container {
+  top: 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.myfavorites {
+  width: 30%;
+  height: 50%;
+}
+.myrecipes {
+  width: 30%;
+  height: 50%;
+}
+#addNew {
+  height: 50px;
+}
+.trash {
+  width: 100%;
+  height: auto;
+}
+

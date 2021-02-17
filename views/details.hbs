@@ -1,34 +1,20 @@
 <div>
-
   <h1 id="details-title">{{oneRecipe.name}}</h1>
-
-
   <img id="details-photo" src="{{oneRecipe.imageURL}}">
-
   <h4>Ingredients:</h4>
-
   <ul>
    {{#each oneRecipe.ingredients}} 
-
       <li>{{this.name}}, {{this.quantity}} </li>
-
   {{/each}}
-
 </ul>
-  
-
 </div>
 <h4>Instructions:</h4>
 <p>{{oneRecipe.instructions}}</p>
-
 <form action='/recipes/{{oneRecipe._id}}' method='POST'>
 <textarea name="review" rows="10" cols="50" placeholder="Wanna leave a comment?"></textarea>
   <button name="oneRecipe" type='submit' >Submit</button>
-
 </form>
-
 </div>
-
 <div>
   {{#each oneRecipe.reviews}}
     <ul>

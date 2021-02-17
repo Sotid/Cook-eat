@@ -6,7 +6,6 @@ const Recipe = require("../models/recipe-model");
 const bodyParser = require("body-parser");
 const zxcvbn = require("zxcvbn");
 const fileUploader = require("./../configs/cloudinary.js");
-
 //custom middleware
 function loggedIn(req, res, next) {
   if (req.session.currentUser) {
@@ -15,9 +14,7 @@ function loggedIn(req, res, next) {
     res.redirect("/");
   }
 }
-
 //GET /PRIVATE/PROFILE renders personal profile view
-
 privateRouter.get("/myprofile", loggedIn, (req, res, next) => {
   const id = req.session.currentUser._id;
   User.findById(id)
@@ -27,9 +24,7 @@ privateRouter.get("/myprofile", loggedIn, (req, res, next) => {
     })
     .catch((err) => next());
 });
-
 //GET /PRIVATE/MYPROFILE/EDIT renders edit-profile view
-
 privateRouter.get("/myprofile/edit/:id", loggedIn, (req, res, next) => {
   const id = req.session.currentUser._id;
   User.findById(id)
@@ -39,9 +34,7 @@ privateRouter.get("/myprofile/edit/:id", loggedIn, (req, res, next) => {
     })
     .catch((err) => next());
 });
-
 //POST /PRIVATE/MYPROFILE/EDIT sends new data to the server. Renders same page updated
-
 privateRouter.post(
   "/myprofile/edit/:id",
   fileUploader.single("image"),
@@ -54,10 +47,8 @@ privateRouter.post(
     } else {
       image = "https://i.postimg.cc/pXhVngg2/avatar.png";
     }
-
     const id = req.session.currentUser._id;
     const { username, email, password, imageURL } = req.body;
-
     User.findByIdAndUpdate(
       id,
       { username, email, password, imageURL: image },
@@ -69,9 +60,7 @@ privateRouter.post(
       .catch((err) => console.log(err));
   }
 );
-
 //GET /PRIVATE/FAVORITES renders favorites and my recipes view
-
 privateRouter.get("/favorites", loggedIn, function (req, res, next) {
   const id = req.session.currentUser._id;
   User.findById(id)
@@ -83,16 +72,12 @@ privateRouter.get("/favorites", loggedIn, function (req, res, next) {
     })
     .catch((err) => console.log(err));
 });
-
 //GET /PRIVATE/FAVORITES/CREATE renders form to create new recipe
-
 privateRouter.get("/favorites/create", loggedIn, function (req, res, next) {
   res.render("create");
 });
-
 //POST /PRIVATE/FAVORITES/CREATE creates new recipe in DB
 // appears in general recipes search and My Recipes private view
-
 privateRouter.post(
   "/favorites/create",
   fileUploader.single("image"),
@@ -106,14 +91,12 @@ privateRouter.post(
       quantity,
       type,
     } = req.body;
-
     let imageUrl;
     if (req.file) {
       imageUrl = req.file.path;
     } else {
       imageUrl = "https://i.postimg.cc/Wbv5LdQR/default.jpg";
     }
-
     let ingredients;
     if (
       Array.isArray(ingredientName) &&
@@ -138,7 +121,6 @@ privateRouter.post(
       };
       ingredients = [ingredientObj];
     }
-
     let thisUser = req.session.currentUser._id;
     Recipe.create({
       name,
@@ -146,7 +128,6 @@ privateRouter.post(
       instructions,
       ingredients,
     })
-
       .then((newRecipe) => {
         User.findByIdAndUpdate(
           thisUser,
@@ -159,46 +140,43 @@ privateRouter.post(
       .catch((err) => next());
   }
 );
-
 //POST /PRIVATE/FAVORITES/DELETE-MINE Permanently removes a recipe the user created (from DB)
-
-privateRouter.post("/favorites/:recipeId/delete-mine", (req, res, next) => {
-  const { recipeId } = req.params;
-
-  Recipe.findByIdAndRemove(recipeId)
-    .then(() => res.redirect("/private/favorites/"))
-    .catch((err) => next());
-});
-
-//POST /PRIVATE/FAVORITES/RECIPE:ID/ADD Adds a new recipe to user's favorites and renders favorites view
-
-privateRouter.post("/favorites/:recipeId/add", function (req, res, next) {
-  const id = req.session.currentUser._id;
-
-  const { recipeId } = req.params;
-
-  User.findByIdAndUpdate(
-    id,
-    { $addToSet: { favorites: recipeId } },
-    { new: true }
-  )
-    .then(() => recipeId.save)
-    .then(() => res.redirect("/private/favorites"))
-    .catch((err) => next());
-});
-
-module.exports = privateRouter;
-
-//POST /PRIVATE/FAVORITES/RECIPE:ID/DELETE-FAV Removes a favorite from the user's array
-// The recipe is NOT REMOVED from the DB
-
 privateRouter.post(
-  "/favorites/:recipeId/delete-fav",
+  "/favorites/:recipeId/delete-mine",
+  loggedIn,
+  (req, res, next) => {
+    const { recipeId } = req.params;
+    Recipe.findByIdAndRemove(recipeId)
+      .then(() => res.redirect("/private/favorites/"))
+      .catch((err) => next());
+  }
+);
+//POST /PRIVATE/FAVORITES/RECIPE:ID/ADD Adds a new recipe to user's favorites and renders favorites view
+privateRouter.post(
+  "/favorites/:recipeId/add",
+  loggedIn,
   function (req, res, next) {
     const id = req.session.currentUser._id;
-
     const { recipeId } = req.params;
-
+    User.findByIdAndUpdate(
+      id,
+      { $addToSet: { favorites: recipeId } },
+      { new: true }
+    )
+      .then(() => recipeId.save)
+      .then(() => res.redirect("/private/favorites"))
+      .catch((err) => next());
+  }
+);
+module.exports = privateRouter;
+//POST /PRIVATE/FAVORITES/RECIPE:ID/DELETE-FAV Removes a favorite from the user's array
+// The recipe is NOT REMOVED from the DB
+privateRouter.post(
+  "/favorites/:recipeId/delete-fav",
+  loggedIn,
+  function (req, res, next) {
+    const id = req.session.currentUser._id;
+    const { recipeId } = req.params;
     User.findByIdAndUpdate(
       id,
       { $pull: { favorites: recipeId } },
@@ -208,5 +186,4 @@ privateRouter.post(
       .catch((err) => next());
   }
 );
-
 module.exports = privateRouter;
