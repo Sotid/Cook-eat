@@ -7,12 +7,14 @@ const bodyParser = require("body-parser");
 //GET /show renders main view with a list of recipes in DB
 
 recipesRouter.get("/show", function (req, res, next) {
-  Recipe.find().then((allRecipes) => {
-    const data = {
-      allRecipes: allRecipes,
-    };
-    res.render("recipes", data);
-  });
+  Recipe.find()
+    .limit(9)
+    .then((allRecipes) => {
+      const data = {
+        allRecipes: allRecipes,
+      };
+      res.render("recipes", data);
+    });
 });
 
 // GET /RECIPES[?q=str] - Render search results.

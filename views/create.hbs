@@ -1,3 +1,4 @@
+<div id="create-page"></div>
 <form action='/private/favorites/create' method='POST' enctype="multipart/form-data">
   <h2>What are you cooking today?</h2>
   <label for='name'><h4>Title:</h4></label>
@@ -32,6 +33,6 @@
 <h4>Instructions:</h4>
     <label for='instructions'></label>
 <textarea name="instructions" rows="10" cols="50" placeholder="How to make it yummy?"></textarea>
-  <a href="/recipes/{{newRecipe._id}}"><button type='create'>Create!</button></a>
+  <a href="/recipes/{{newRecipe._id}}"><button class="submit-button" type='create'>Create!</button></a>
 </form>
 <script src="/javascripts/function.js"></script>

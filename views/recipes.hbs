@@ -1,16 +1,23 @@
+<div class="title-container">
+  <h1>What's in your fridge?</h1>
+</div>
+
 <div class="search">
 <form  action='/recipes' method='GET'>
   <input class="search-bar" type='text' name='search' placeholder= "Search by ingredients...">
   <button class="search-btn" type='submit'><img class="glass" src="/images/glass.png" alt=""></button>
 </form>
  </div>
-<h2>Take a look and click to display details</h2>
+ 
+<h3>Take a look and click on the images to display details</h2>
 
 <div class="recipe-container">
 {{#each allRecipes}}
+
 <div class="recipe-box">
 
   <h3>{{this.name}}</h3>
+
   <a href="/recipes/{{this._id}}">
   <img class="recipe-img" src="{{this.imageURL}}">
 </a>

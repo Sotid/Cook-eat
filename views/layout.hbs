@@ -15,14 +15,21 @@
         <ul>
           <a href="/recipes/show"><li> What's in your fridge? </li></a>
           <a href="/private/favorites"><li> Favorites </li></a>
-          <a href="/private/favorites"><li> My recipes </li></a> 
         </ul>
       </div>
+<div id="nav-right">
+
+<div id="nav-personal">
+<span>{{thisUser.username}}</span>  {{!-- to change for avatar  --}}
+         <img class="mini-avatar" src="{{thisUser.imageURL}}">
+         </div>
+
+
       <div id="nav-buttons">
-           <span>{{thisUser.username}}</span>  {{!-- to change for avatar  --}}
-           <img class="mini-avatar" src="{{thisUser.imageURL}}">
         <a href="/private/myprofile"> <button name="myprofile">My profile</button></a> 
         <a href="/logout"><button type="submit" name="logout">Log out</button></a>
+      </div>
+
       </div>
 </nav>
 </header>

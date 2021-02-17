@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap");
+
+/* GENERAL */
 body {
   font-family: "Poppins", sans-serif;
   margin-top: 10rem;
@@ -6,6 +8,116 @@ body {
 }
 a {
   text-decoration: none;
+}
+h1 {
+  font-size: 2rem;
+  letter-spacing: 0.5rem;
+}
+h3 {
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+  text-align: center;
+}
+p {
+  font-size: 1.2rem;
+}
+
+.submit-button {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+  border: 3px solid #04c08d;
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.submit-button:hover {
+  transition: 1s;
+  background: #04c08d;
+}
+
+/*LOGIN and SIGNUP SCREEN*/
+
+.form {
+  display: flex;
+  background-size: 60%;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 90%;
+}
+.form::after {
+  content: "";
+  background: url("../images/logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  box-sizing: border-box;
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  background: linear-gradient(
+    to right,
+    #ff9e2c 0%,
+    #ff9e2c 50%,
+    #b6701e 50%,
+    #b6701e 100%
+  );
+}
+.user-box {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 50%;
+  padding: 6rem 6rem;
+  text-align: center;
+  font-size: 1.3rem;
+}
+.signup-box {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 5.8rem 5rem;
+  margin-left: 10rem;
+  height: 50%;
+  text-align: center;
+}
+.info {
+  padding: 12px 15px;
+  width: 100%;
+}
+.input {
+  margin: 0.7rem 2rem;
+  font-size: 1.3rem;
+  border: 2px solid #04c08d;
+  border-radius: 3rem;
+  padding: 0.5rem 1rem;
+}
+.label {
+  font-weight: 500;
+}
+.text {
+  font-size: 1.5rem;
+}
+.app {
+  margin: -8rem 0 4rem;
+  font-size: 5rem;
+  text-align: center;
+  font-family: "Long Cang", cursive;
+  color: #0c4e3d;
+}
+.error-message {
+  color: #023238;
+  font-weight: bolder;
+  text-align: center;
 }
 
 /* NAVBAR */
@@ -25,18 +137,23 @@ nav ul {
   display: flex;
   flex-direction: row;
   flex-wrap: initial;
-  margin-top: 2rem;
+  margin-top: 1rem;
+
   list-style: none;
 }
 nav ul li {
   margin: 0 5rem;
   color: rgb(21, 153, 153);
   font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
 }
 .logo {
   width: 6rem;
   float: left;
   height: auto;
+  margin-left: 2rem;
 }
 .mini-avatar {
   height: 4rem;
@@ -46,24 +163,49 @@ nav ul li {
   box-sizing: border-box;
   overflow: hidden;
 }
+#nav-right {
+  display: flex;
+  justify-content: space-around;
+  text-align: justify;
+}
+#nav-buttons {
+  display: flex;
+  flex-direction: column;
+  margin: 0 2rem;
+}
+#nav-personal {
+  display: flex;
+  flex-direction: row;
+}
+
 /* SEARCHBAR */
+
 .search {
-  position: relative;
   text-align: center;
+  margin: 3rem;
 }
 .search-bar {
   float: center;
+  padding: 10px 20px;
+  font-size: 18px;
   width: 40%;
+  height: 2rem;
   border: 3px solid #00b4cc;
-  padding: 5px;
   height: 20px;
-  border-radius: 5px;
+  border-radius: 6px;
   color: #9dbfaf;
+  outline: none;
+}
+
+.search-btn:active {
+  border: none;
+  outline: none;
+  background: rgb(23, 106, 121);
 }
 .search-btn {
   position: absolute;
-  width: 40px;
-  height: 36px;
+  width: 50px;
+  height: 47px;
   border: 1px solid #00b4cc;
   background: #00b4cc;
   text-align: center;
@@ -71,23 +213,27 @@ nav ul li {
   border-radius: 5px;
   cursor: pointer;
   font-size: 20px;
+  outline: none;
 }
-.search-btn:after {
-  color: #023238;
-}
+
 .glass {
   max-width: 100%;
   max-height: 100%;
-  display: block; /* remove extra space below image */
+  display: block;
 }
-/*  RECIPES GENERAL - MORE TO ADD */
+
+/*  RECIPES GENERAL  */
+
+.title-container {
+  margin: 4rem 0;
+  text-align: center;
+}
 .recipe-container {
   display: flex;
   flex-wrap: wrap;
   border: 3.5px solid orange;
-  background-color: rgba(60, 216, 169, 0.288);
   border-radius: 25px;
-  margin: 5rem;
+  margin: 4rem;
   text-align: center;
 }
 
@@ -100,15 +246,19 @@ nav ul li {
   height: 300px;
   object-fit: cover;
 }
-.details-photo {
-  width: 50rem;
-  height: auto;
-}
 .transparent-btn {
   background-color: transparent;
-  border: 1px solid transparent;
+  border: none;
+  outline: none;
 }
+.transparent-btn:active {
+  background-color: white;
+  border: none;
+  outline: none;
+}
+
 /* FAVORITES VIEW */
+
 #favorites-container {
   top: 0;
   display: flex;
@@ -117,6 +267,7 @@ nav ul li {
 
 .favs-box {
   text-align: center;
+  padding-bottom: 3rem;
 }
 
 #myrecipes {
@@ -133,10 +284,42 @@ nav ul li {
 #addNew {
   height: 50px;
 }
+
+#addNew-div {
+  text-align: center;
+}
 .trash {
-  width: 100%;
+  width: 60%;
   height: auto;
 }
 
-.favs-title {
+/* DETAILS VIEW */
+
+#details-view {
 }
+
+.details-content {
+  text-align: justify;
+  padding: 0 5rem;
+  height: 100vh;
+}
+
+.details-photo {
+  width: 40%;
+  height: 50%;
+  float: right;
+  object-fit: cover;
+  padding: 2rem;
+}
+.details-text {
+  float: left;
+  margin-top: -35%;
+  padding-bottom: 5rem;
+}
+
+.reviews {
+  text-align: center;
+  flex-direction: column;
+}
+
+/* CREATE VIEW */
