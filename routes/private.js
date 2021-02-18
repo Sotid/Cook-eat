@@ -134,7 +134,7 @@ privateRouter.post(
           { $push: { myRecipes: newRecipe._id } },
           { new: true }
         ).then((thisUser) => {
-          res.redirect(`/recipes/show`);
+          res.redirect(`/private/favorites/`);
         });
       })
       .catch((err) => next());

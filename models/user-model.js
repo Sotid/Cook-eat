@@ -17,7 +17,7 @@ const userSchema = new Schema({
   },
   imageURL: {
     type: String,
-    default: "https://i.postimg.cc/pXhVngg2/avatar.png",
+    default: "https://i.postimg.cc/wM25TjGC/unknown.png",
   },
 });
 

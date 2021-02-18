@@ -19,7 +19,7 @@ const recipeSchema = new Schema({
           "Vegetables",
           "Cereals and Legumes",
           "Flours",
-          "Rice and pasta",
+          "Rice and Pasta",
           "Soups and Creams",
           "Dairy",
           "Fruits",

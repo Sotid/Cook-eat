@@ -1,41 +1,29 @@
 <div id="details-view">
-
 <div class="details-content">
   <img class="details-photo" src="{{oneRecipe.imageURL}}">
-
-  
- <div class="details-text">
      <h1 class="details-title">{{oneRecipe.name}}</h1>
-
      <h4>Ingredients:</h4>
    <ul>
    {{#each oneRecipe.ingredients}} 
       <li class="ingredients">{{this.name}}, {{this.quantity}} </li>
   {{/each}}
   </ul>
-   
-  
 <h4>Instructions:</h4>
 <p>{{oneRecipe.instructions}}</p>
-
 </div>
-</div>
-
-
 <div class="reviews">
-
 <form action='/recipes/{{oneRecipe._id}}' method='POST'>
-<textarea name="review" rows="10" cols="50" placeholder="Wanna leave a comment?"></textarea>
- 
- <div> <button name="oneRecipe" class="submit-button" type='submit' >Submit</button>
+<textarea class="comments" name="review" rows="10" cols="50" placeholder="Wanna leave a comment?"></textarea>
+<div> <button name="oneRecipe" class="submit-button" type='submit' >Submit</button>
+  {{#each oneRecipe.reviews}}
+      <ul class="submitted-reviews">
+      <li ><img class="submitted-image" src="{{../user.imageURL}}"></li>
+      <li class="submitted-username">{{../user.username}}</li>
+      <textarea class="review">
+        {{this}}</textarea>
 </form>
 </div>
-  {{#each oneRecipe.reviews}}
-    <ul>
-      <li>{{this}}</li>
 </ul>
   {{/each}}
 </div>
-
-
 </div>

@@ -13,18 +13,16 @@
 
 <div class="recipe-container">
 {{#each allRecipes}}
-
 <div class="recipe-box">
-
   <h3>{{this.name}}</h3>
-
+<div class="like">
   <a href="/recipes/{{this._id}}">
   <img class="recipe-img" src="{{this.imageURL}}">
 </a>
 <form action='/private/favorites/{{this._id}}/add' method='POST'>
-<button  class="transparent-btn"  name="favs" ><img src="/images/fav.png"></button>
+<button class="favorites-btn" name="favs" ><img src="/images/fav.png"></button>
 </form>
-
+</div>
 </div>
 {{/each}}
 </div>

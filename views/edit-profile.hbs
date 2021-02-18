@@ -1,12 +1,11 @@
-<h2>Edit your personal data</h2>
-<div class= "profile-edit">
-
+<h2 class="edit-title">Edit your personal data</h2>
+<div class= "profile-avatar">
 <div>
    <img class="avatar" src={{thisUser.imageURL}}>
 </div>
-  <div class= "fields">
-
 <form action='/private/myprofile/edit/{{thisUser._id}}' method='POST' enctype="multipart/form-data">
+ <div class= "fields">
+   <label for='email'>Username</label>
   <input type='text' name='username' value="{{thisUser.username}}">
   <label for='email'>Email</label>
   <input type='text' name='email' value="{{thisUser.email}}">
@@ -15,7 +14,7 @@
    <label for='avatar'>Avatar</label>
   <input type='file' name='image'>
   </div>
-  <a href="/private/myprofile"><button type='submit'>Submit</button></a>
+  <a href="/private/myprofile"><button class="submit-button" type='submit'>Submit</button></a>
 </form>
 </div>
 
