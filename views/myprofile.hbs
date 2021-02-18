@@ -1,17 +1,16 @@
-<div>
 
-<h1>hey its me</h1>
-     <img id="avatar" src="{{thisUser.imageURL}}"/>
+<div class= "profile-avatar">
+       
+     <img class="avatar" src="{{thisUser.imageURL}}"/>
+
+     <div class= "profile-info">
+
      <p>{{thisUser.username}}</p>
      <p>{{thisUser.email}}</p>
-     
-     
-</div>
+     <div>
 
-<div id="profile-buttons">
-     <a href="/private/myprofile/edit/{{thisUser._id}}"> <button name="edit">Edit</button></a> 
-     <a href="/private/favorites"> <button name="favorites">My favorites</button></a> 
-     <a href="/private/favorites"> <button name="myrecipes">My recipes</button></a> 
+     <a  href="/private/myprofile/edit/{{thisUser._id}}"> <button class="submit-button"name="edit">Edit</button></a> 
+     <a href="/private/favorites"> <button class="submit-button" name="favorites">My favorites</button></a> 
+     <a href="/private/favorites"> <button class="submit-button"name="myrecipes">My recipes</button></a> 
 </div>
-
-     <a href="/logout"><button type="submit" name="logout">Log out</button></a>
+     <a href="/logout"><button class="submit-button"type="submit" name="logout">Log out</button></a>

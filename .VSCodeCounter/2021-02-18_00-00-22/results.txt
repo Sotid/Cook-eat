@@ -1,0 +1,62 @@
+Date : 2021-02-18 00:00:22
+Directory : /Users/sotiriadialeti/Desktop/project
+Total : 25 files,  8809 codes, 58 comments, 230 blanks, all 9097 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JSON       |          2 |      5,484 |          0 |          2 |      5,486 |
+| JavaScript |         10 |      2,700 |         49 |        113 |      2,862 |
+| CSS        |          1 |        366 |          9 |         53 |        428 |
+| Handlebars |         12 |        259 |          0 |         62 |        321 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                   | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                      |         25 |      8,809 |         58 |        230 |      9,097 |
+| bin                                                                    |          1 |        593 |          0 |          6 |        599 |
+| configs                                                                |          1 |         19 |          3 |          5 |         27 |
+| models                                                                 |          2 |         56 |          5 |         10 |         71 |
+| public                                                                 |          2 |        395 |         10 |         54 |        459 |
+| public/javascripts                                                     |          1 |         29 |          1 |          1 |         31 |
+| public/stylesheets                                                     |          1 |        366 |          9 |         53 |        428 |
+| routes                                                                 |          3 |        310 |         31 |         36 |        377 |
+| views                                                                  |         12 |        259 |          0 |         62 |        321 |
+| views/auth-views                                                       |          2 |         45 |          0 |          0 |         45 |
+| views/partials                                                         |          1 |          0 |          0 |          1 |          1 |
++------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                               | language   | code       | comment    | blank      | total      |
++------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| /Users/sotiriadialeti/Desktop/project/app.js                           | JavaScript |         62 |          9 |         16 |         87 |
+| /Users/sotiriadialeti/Desktop/project/bin/seed.js                      | JavaScript |        593 |          0 |          6 |        599 |
+| /Users/sotiriadialeti/Desktop/project/configs/cloudinary.js            | JavaScript |         19 |          3 |          5 |         27 |
+| /Users/sotiriadialeti/Desktop/project/database.js                      | JavaScript |      1,631 |          0 |         39 |      1,670 |
+| /Users/sotiriadialeti/Desktop/project/models/recipe-model.js           | JavaScript |         35 |          2 |          6 |         43 |
+| /Users/sotiriadialeti/Desktop/project/models/user-model.js             | JavaScript |         21 |          3 |          4 |         28 |
+| /Users/sotiriadialeti/Desktop/project/package-lock.json                | JSON       |      5,452 |          0 |          1 |      5,453 |
+| /Users/sotiriadialeti/Desktop/project/package.json                     | JSON       |         32 |          0 |          1 |         33 |
+| /Users/sotiriadialeti/Desktop/project/public/javascripts/function.js   | JavaScript |         29 |          1 |          1 |         31 |
+| /Users/sotiriadialeti/Desktop/project/public/stylesheets/style.css     | CSS        |        366 |          9 |         53 |        428 |
+| /Users/sotiriadialeti/Desktop/project/routes/auth.js                   | JavaScript |         87 |         13 |         24 |        124 |
+| /Users/sotiriadialeti/Desktop/project/routes/private.js                | JavaScript |        175 |         14 |          0 |        189 |
+| /Users/sotiriadialeti/Desktop/project/routes/recipes.js                | JavaScript |         48 |          4 |         12 |         64 |
+| /Users/sotiriadialeti/Desktop/project/views/auth-views/login-form.hbs  | Handlebars |         27 |          0 |          0 |         27 |
+| /Users/sotiriadialeti/Desktop/project/views/auth-views/signup-form.hbs | Handlebars |         18 |          0 |          0 |         18 |
+| /Users/sotiriadialeti/Desktop/project/views/create.hbs                 | Handlebars |         47 |          0 |         13 |         60 |
+| /Users/sotiriadialeti/Desktop/project/views/details.hbs                | Handlebars |         28 |          0 |         13 |         41 |
+| /Users/sotiriadialeti/Desktop/project/views/edit-profile.hbs           | Handlebars |         18 |          0 |          7 |         25 |
+| /Users/sotiriadialeti/Desktop/project/views/error.hbs                  | Handlebars |          3 |          0 |          0 |          3 |
+| /Users/sotiriadialeti/Desktop/project/views/favorites.hbs              | Handlebars |         31 |          0 |          7 |         38 |
+| /Users/sotiriadialeti/Desktop/project/views/layout.hbs                 | Handlebars |         34 |          0 |          4 |         38 |
+| /Users/sotiriadialeti/Desktop/project/views/myprofile.hbs              | Handlebars |         11 |          0 |          5 |         16 |
+| /Users/sotiriadialeti/Desktop/project/views/partials/cards.hbs         | Handlebars |          0 |          0 |          1 |          1 |
+| /Users/sotiriadialeti/Desktop/project/views/recipes.hbs                | Handlebars |         23 |          0 |          7 |         30 |
+| /Users/sotiriadialeti/Desktop/project/views/search.hbs                 | Handlebars |         19 |          0 |          5 |         24 |
+| Total                                                                  |            |      8,809 |         58 |        230 |      9,097 |
++------------------------------------------------------------------------+------------+------------+------------+------------+------------+

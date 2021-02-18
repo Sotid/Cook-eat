@@ -6,11 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
-
 </head>
-
 <body>
- 
 <header>
    <nav class="navbar">
       <div id="ul-container">
@@ -18,37 +15,24 @@
         <ul>
           <a href="/recipes/show"><li> What's in your fridge? </li></a>
           <a href="/private/favorites"><li> Favorites </li></a>
-          <a href="/private/favorites"><li> My recipes </li></a> 
         </ul>
       </div>
-   
+<div id="nav-right">
+
+<div id="nav-personal">
+<span>{{thisUser.username}}</span>  {{!-- to change for avatar  --}}
+         <img class="mini-avatar" src="{{thisUser.imageURL}}">
+         </div>
+
+
       <div id="nav-buttons">
-           <span>{{thisUser.username}}</span>  {{!-- to change for avatar  --}}
-          
-        <a href="/private/myprofile"> <button name="myprofile">My profile</button></a> 
-        <a href="/logout"><button type="submit" name="logout">Log out</button></a>
-        
+        <a href="/private/myprofile"> <button class="nav-button" name="myprofile">My profile</button></a> 
+        <a href="/logout"><button class="nav-button" type="submit" name="logout">Log out</button></a>
+      </div>
+
       </div>
 </nav>
 </header>
-
-
     {{{body}}}
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

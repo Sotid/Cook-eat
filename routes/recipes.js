@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 //GET /show renders main view with a list of recipes in DB
 
 recipesRouter.get("/show", function (req, res, next) {
-  Recipe.find().then((allRecipes) => {
+  Recipe.aggregate([{ $sample: { size: 9 } }]).then((allRecipes) => {
     const data = {
       allRecipes: allRecipes,
     };
@@ -39,7 +39,10 @@ recipesRouter.get("/:recipeId", function (req, res, next) {
   const { recipeId } = req.params;
 
   Recipe.findById(recipeId).then((oneRecipe) => {
-    res.render("details", { oneRecipe: oneRecipe });
+    res.render("details", {
+      oneRecipe: oneRecipe,
+      user: req.session.currentUser,
+    });
   });
 });
 
@@ -48,7 +51,6 @@ recipesRouter.get("/:recipeId", function (req, res, next) {
 recipesRouter.post("/:recipeId", function (req, res, next) {
   const { recipeId } = req.params;
   const reviews = req.body.review;
-
   Recipe.findByIdAndUpdate(
     recipeId,
     { $push: { reviews: reviews } },

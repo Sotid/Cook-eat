@@ -1,7 +1,3 @@
-const mongoose = require("mongoose");
-const Recipe = require("../models/recipe-model");
-require("dotenv").config();
-
 const recipes = [
   {
     name: "Giouvarelakia",
@@ -14,12 +10,12 @@ const recipes = [
       {
         quantity: "1/4 cup",
         name: "rice",
-        type: "Rice and Pasta",
+        type: "Rice and pasta",
       },
       {
         quantity: "1/4 cup",
         name: "parsley",
-        type: "Vegetables",
+        type: "Vegeatbles",
       },
       {
         quantity: 1,
@@ -118,7 +114,7 @@ const recipes = [
       {
         quantity: "250gr",
         name: "orzo pasta",
-        type: "Rice and Pasta",
+        type: "Rice and pasta",
       },
       {
         quantity: "100gr grated",
@@ -152,7 +148,7 @@ const recipes = [
       {
         quantity: "1/2 cup",
         name: "rice",
-        type: "Rice and Pasta",
+        type: "Rice and pasta",
       },
       {
         quantity: "6 tbsps",
@@ -242,7 +238,7 @@ const recipes = [
       {
         quantity: "3 cups",
         name: "rice",
-        type: "Rice and Pasta",
+        type: "Rice and pasta",
       },
       {
         quantity: "1 can",
@@ -306,7 +302,7 @@ const recipes = [
       {
         quantity: "350gr",
         name: "rice",
-        type: "Rice and Pasta",
+        type: "Rice and pasta",
       },
       {
         quantity: "150ml",
@@ -381,7 +377,7 @@ const recipes = [
       {
         quantity: "140gr",
         name: "noodles",
-        type: "Rice and Pasta",
+        type: "Rice and pasta",
       },
       {
         quantity: "2 tbsp",
@@ -485,7 +481,7 @@ const recipes = [
       {
         quantity: "200 grs",
         name: "noodles",
-        type: "Rice and Pasta",
+        type: "Rice and pasta",
       },
       {
         quantity: 1,
@@ -569,7 +565,7 @@ const recipes = [
       {
         quantity: "1 tsp",
         name: "arrowroot",
-        type: "Vegetables",
+        type: "Vegatables",
       },
     ],
     instructions:
@@ -814,7 +810,7 @@ const recipes = [
       {
         quantity: "500 gr",
         name: "lasagna sheets",
-        type: "Rice and Pasta",
+        type: "Rice and pasta",
       },
       {
         quantity: "400 ml",
@@ -1210,7 +1206,7 @@ const recipes = [
       {
         quantity: "350 gr",
         name: "spaghetti",
-        type: "Rice and Pasta",
+        type: "Rice and pasta",
       },
       {
         quantity: "2 cloves",
@@ -1694,7 +1690,7 @@ const recipes = [
       {
         quantity: "170gr",
         name: "rice",
-        type: "Rice and Pasta",
+        type: "Rice and pasta",
       },
     ],
     instructions:
@@ -1708,7 +1704,7 @@ const recipes = [
       {
         quantity: 4,
         name: "tomatoes",
-        type: "Vegetables",
+        type: "Vegatables",
       },
       {
         quantity: "2tbsps",
@@ -1799,7 +1795,7 @@ const recipes = [
       {
         quantity: "300gr",
         name: "icing sugar",
-        type: "Condiments",
+        type: "Condiemnts",
       },
       {
         quantity: "100gr",
@@ -1971,7 +1967,7 @@ const recipes = [
       {
         quantity: "1/3 cup",
         name: "butter",
-        type: "Dairy",
+        type: "Dairy ",
       },
       {
         quantity: " 1tsp",
@@ -1990,7 +1986,7 @@ const recipes = [
       {
         quantity: "2 cups",
         name: "rice",
-        type: "Rice and Pasta",
+        type: "Rices and pasta",
       },
       {
         quantity: "6 cups",
@@ -2073,21 +2069,3 @@ const recipes = [
       "https://bakingthegoods.com/wp-content/uploads/2012/10/Powerbar-Of-The-Gods-Baklava.jpg",
   },
 ];
-
-mongoose
-  .connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then((x) => {
-    const pr = x.connection.dropDatabase();
-    return pr;
-  })
-  .then(() => {
-    const pr = Recipe.create(recipes);
-    return pr;
-  })
-  .then((createdRecipes) => {
-    mongoose.connection.close();
-  })
-  .catch((err) => console.log("Error connection to the DB", err));

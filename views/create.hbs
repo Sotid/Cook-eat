@@ -1,56 +1,66 @@
-<form action='/private/favorites/create' method='POST' enctype="multipart/form-data">
-  <h2>What are you cooking today?</h2>
 
+   <form  action='/private/favorites/create' method='POST' enctype="multipart/form-data">
+   
+     <div class= "create-page">
+      <h2>What are you cooking today?</h2>
+    </div>
   
-  <label for='name'><h4>Title:</h4></label>
-  <input type='text' name='name'>
-
-  <h4>Photo:</h4>
-  <label for='imageURL'>Add a nice picture</label>
-  <input type='file' name='image'>
-
-  <h4>Ingredients:</h4>
-
-
-   <div id="new-ingredient">
-  <ul>
-  <li><label for='name'>Ingredient</label>
-  <input type='text' name='ingredientName'>
-
-    <label for='quantity'>Quantity</label>
-  <input type='text' name='quantity'>
-
-    <label for='type'>Type</label>
-<select name="type" value="Type:">
-  <option value="Cereals and Legumes">Cereals and legumes</option>
-  <option value="Condiments">Condiments</option>
-  <option value="Dairy">Dairy</option>
-  <option value="Drinks">Drinks</option>
-  <option value="Fish">Fish</option>
-   <option value="Flours">Flours</option>
-  <option value="Fruits">Fruits</option>
-  <option value="Meat">Meat</option>
-  <option value="Rice and Pasta">Rice and Pasta</option>
-  <option value="Soups and Creams">Soups and Creams</option>
-  <option value="Vegetables">Vegetables</option>
-
-</select></li>
-
+  <artcile class=  "create-form">
+   <div class="create-form-name">
+    <label  for='name'>Title:</label>
+    <input type='text' name='name'>
+  </div>
+ 
+ 
+   <div class= "create-form-photo">
+    <label for='imageURL'>Add a nice picture</label>
+    <input type='file' name='image'>
+   </div>
   
-</ul>
-</div>
+  
+    <div id="new-ingredient">
+      <ul>
+        <li><label class="ingredient-name" for='name'>Ingredient</label>
+          <input type='text' name='ingredientName'>
+          <label for='quantity'>Quantity</label>
+          <input type='text' name='quantity'>
+          <label for='type'>Type</label>
+            <select name="type" value="Type:">
+              <option value="Cereals and Legumes">Cereals and legumes</option>
+              <option value="Condiments">Condiments</option>
+              <option value="Dairy">Dairy</option>
+              <option value="Drinks">Drinks</option>
+              <option value="Fish">Fish</option>
+              <option value="Flours">Flours</option>
+              <option value="Fruits">Fruits</option>
+              <option value="Meat">Meat</option>
+              <option value="Rice and Pasta">Rice and Pasta</option>
+              <option value="Soups and Creams">Soups and Creams</option>
+              <option value="Vegetables">Vegetables</option>
+            </select>
+        </li>
+      </ul>
+    </div>
 
-<button type="button" id="add-more" >Add more</button>
+
+    <div class="add-more-btn">
+     <a type="button" id="add-more" >Add more</a>
+    </div>
 
 
-<h4>Instructions:</h4>
+   <h4>Instructions:</h4>
+    <label for="instructions"></label>
+    <textarea name="instructions" rows="10" cols="50" placeholder="How to make it yummy?"></textarea>
+   
+   <div class= "create-btn">
+    <a href="/recipes/{{newRecipe._id}}"><button class="submit-button" type="create">Create!</button></a>
+   </div>
 
-    <label for='instructions'></label>
-<textarea name="instructions" rows="10" cols="50" placeholder="How to make it yummy?"></textarea>
 
-  <a href="/recipes/{{newRecipe._id}}"><button type='create'>Create!</button></a>
-
-</form>
+  </article>
+  </form>
 
 
 <script src="/javascripts/function.js"></script>
+
+  

@@ -1,31 +1,28 @@
-<p>
-<form action='/recipes' method='GET'>
-  <div>
-  <input type='text' name='search' placeholder= "Search by ingredients...">
-  <input type='submit' value='search'>
- </div>
+<div class="title-container">
+  <h1>What's in your fridge?</h1>
+</div>
+
+<div class="search">
+<form  action='/recipes' method='GET'>
+  <input class="search-bar" type='text' name='search' placeholder= "Search by ingredients...">
+  <button class="search-btn" type='submit'><img class="glass" src="/images/glass.png" alt=""></button>
 </form>
-</p>
+ </div>
+ 
+<h3>Take a look and click on the images to display details</h2>
 
-
-<h2>Take a look and click to display details</h2>
-
-
-
-<ul >
+<div class="recipe-container">
 {{#each allRecipes}}
-
-
-<li class="recipe-container">
-{{this.name}}
-<a href="/recipes/{{this._id}}">
+<div class="recipe-box">
+  <h3>{{this.name}}</h3>
+<div class="like">
+  <a href="/recipes/{{this._id}}">
   <img class="recipe-img" src="{{this.imageURL}}">
 </a>
 <form action='/private/favorites/{{this._id}}/add' method='POST'>
-<button  class="transparent-btn"  name="favs" ><img src="/images/fav.png"></button>
+<button class="favorites-btn" name="favs" ><img src="/images/fav.png"></button>
 </form>
-</li>
-
+</div>
 </div>
 {{/each}}
-</ul>
+</div>
