@@ -155,6 +155,7 @@ nav {
   left: 0;
   right: 0;
   border-bottom: 2px solid #f1fded;
+  z-index:1;
 }
 nav ul {
   display: flex;
