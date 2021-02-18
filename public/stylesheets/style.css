@@ -313,7 +313,6 @@ nav ul li {
 }
 .details-text {
   float: left;
-  margin-top: -35%;
   padding-bottom: 5rem;
 }
 
@@ -323,3 +322,106 @@ nav ul li {
 }
 
 /* CREATE VIEW */
+
+.create-page {
+  margin-top: -4rem;
+  text-align:center;
+}
+
+.create-form{
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 5rem 1rem;
+  margin: 0.5rem 15rem 0 ;
+  border: 3px solid green;
+  border-radius: 10%;
+}
+
+.create-form-name {
+  display:flex;
+  margin-top: -1rem;
+
+}
+
+.create-form-name label{
+  margin-right: 2rem;
+  font-weight: 900;
+}
+
+.create-form-name input {
+  width: 60vw;
+  height: 3vh;
+  margin-bottom: 1.2rem ;
+}
+
+
+.create-form-photo{
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1.5rem;
+}
+
+
+
+#new-ingredient li {
+  list-style-type: none;
+  padding-left:-20rem;
+ 
+
+}
+
+#new-ingredient input{
+  margin-right: 1rem;
+}
+#new-ingredient .ingredient-name{
+  margin-left: -2.5rem;
+}
+#new-ingredient input {
+  padding-left: -20rem;
+
+
+}
+
+
+.add-more-btn {
+  text-align: center;
+  font-weight: 700;
+  border: 3px solid #04c08d;
+  border-radius: 20px;
+  padding: 0.3rem 0.3rem;
+  margin: 0.3rem 20rem 0.4rem;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+}
+
+.create-btn .submit-button{
+ margin: 2rem 20rem ;
+}
+
+/* MY PROFILE */
+
+.profile-avatar{
+display:flex;
+justify-content: center;
+margin-top: 5rem;
+margin-left: -10rem;
+}
+
+.profile-avatar .avatar {
+  width: 300px;
+  height: 300px;
+  margin: 0 15rem 10rem -5rem;
+}
+
+.fields{
+  display:flex;
+  flex-direction: column;
+}
+
+
+.profile-edit .avatar {
+  width: 300px;
+  height: 300px;
+  margin: 0 15rem 10rem 0;
+}
+
