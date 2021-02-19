@@ -146,7 +146,7 @@ p {
 /* NAVBAR */
 nav {
   display: flex;
-  background-color: rgba(88, 185, 88, 0.849);
+  background-color: rgb(116, 202, 116);
   align-items: center;
   color: white;
   justify-content: space-between;
@@ -284,6 +284,7 @@ nav ul li {
   height: 300px;
   object-fit: cover;
   border-bottom: 20rem;
+  border-radius: 3%;
 }
 .favorites-btn {
   position: absolute;
