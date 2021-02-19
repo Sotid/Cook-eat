@@ -14,7 +14,7 @@ const recipes = [
       {
         quantity: "1/4 cup",
         name: "rice",
-        type: "Rice and Pasta",
+        type: "Rice and pasta",
       },
       {
         quantity: "1/4 cup",
@@ -118,7 +118,7 @@ const recipes = [
       {
         quantity: "250gr",
         name: "orzo pasta",
-        type: "Rice and Pasta",
+        type: "Rice and pasta",
       },
       {
         quantity: "100gr grated",
@@ -152,7 +152,7 @@ const recipes = [
       {
         quantity: "1/2 cup",
         name: "rice",
-        type: "Rice and Pasta",
+        type: "Rice and pasta",
       },
       {
         quantity: "6 tbsps",
@@ -242,7 +242,7 @@ const recipes = [
       {
         quantity: "3 cups",
         name: "rice",
-        type: "Rice and Pasta",
+        type: "Rice and pasta",
       },
       {
         quantity: "1 can",
@@ -306,7 +306,7 @@ const recipes = [
       {
         quantity: "350gr",
         name: "rice",
-        type: "Rice and Pasta",
+        type: "Rice and pasta",
       },
       {
         quantity: "150ml",
@@ -381,7 +381,7 @@ const recipes = [
       {
         quantity: "140gr",
         name: "noodles",
-        type: "Rice and Pasta",
+        type: "Rice and pasta",
       },
       {
         quantity: "2 tbsp",
@@ -408,8 +408,7 @@ const recipes = [
       "Mix the teriyaki sauce, five-spice and curry powders. Add half to the pork, turning to coat, and leave to marinate for 15 mins.Heat oven to 200C/180C fan/ gas 6. Remove pork from the marinade and put on a small baking tray lined with foil. Roast for 15-20 mins.Meanwhile, cook the noodles following pack instructions, but reduce the cooking time by 1 min. Refresh in cold water and drain very well.Transfer the pork to a chopping board and rest for 5 mins. Set a large non-stick frying pan or wok over a medium-high heat. Add the oil and stir-fry the veg for 3-4 mins. Cut the pork in half lengthways, then thinly slice. Tip into the pan, with the shrimps, noodles and remaining marinade. Toss together for 2-3 mins until hot.",
     imageURL:
       "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/singapore_noodles-7d1ad7e.jpg?webp=true&quality=90&resize=500%2C454",
- 
-    },
+  },
   {
     name: "Spicy Pork Ramen",
     ingredients: [
@@ -486,7 +485,7 @@ const recipes = [
       {
         quantity: "200 grs",
         name: "noodles",
-        type: "Rice and Pasta",
+        type: "Rice and pasta",
       },
       {
         quantity: 1,
@@ -516,8 +515,9 @@ const recipes = [
     ],
     instructions:
       "Preheat the oven to 150C/300F. Place a large casserole pan on the hob, add 1 tbsp of the oil and heat until very hot.Season the pork with the salt and pepper and place in the pan with the hot oil. Seal on all sides.Pour the stock over the pork.Add in the onion, the whole carrot, celery, garlic and ginger.Now add the mirin, soy sauce, gochujang and the red chilli. Bring to the boil, then place a lid on the pan and place in the oven for 4 hours.Take the pan out of the oven and place the pork on a chopping board. Remove and discard the layer of fat. Shred the pork using two forks.Place a sieve over a large bowl and strain the cooking liquid. Throw the strained vegetables away and place the liquid back in the pan with the shredded pork. Leave on a low heat to keep warm.Place the eggs in a small pan. Just cover with cold water. Bring to the boil, then simmer for 6 minutes.Remove the eggs from the heat and place in a bowl of cold water to stop the cooking process.If you're using dried noodles, place the noodles in a pan of boiling water and boil for 5 minutes. Then drain, run under cold water (to stop them sticking) and put to one side.Heat the remaining oil in a frying pan.Add the leek, season with a pinch of salt and pepper then fry for 5 minutes, stirring a couple of times.Push the leeks to one side of the pan and add the spinach to the pan. Allow to wilt for 1 minute.Divide the noodles between four bowls. Top with the hot broth, shredded pork, leek, spinach and carrot matchsticks.Carefully peel the two eggs and slice in half. Place 2 halves in each bowl.Garnish the soup with spring onions, then sprinkle with the white and black sesame seeds and the chilli flakes before serving.",
-     imageURL:"https://www.theflavorbender.com/wp-content/uploads/2017/04/Easy-Pork-Ramen-Noodles-The-Flavor-Bender-Featured-Image-SQ-6.jpg"
-    },
+    imageURL:
+      "https://www.theflavorbender.com/wp-content/uploads/2017/04/Easy-Pork-Ramen-Noodles-The-Flavor-Bender-Featured-Image-SQ-6.jpg",
+  },
   {
     name: "Duck breast with berry sauce",
     ingredients: [
@@ -575,7 +575,7 @@ const recipes = [
     instructions:
       "Preheat the oven to 220ºC/gas mark 7. Coat the duck breasts in the oil and season with salt and pepper. Place a large frying pan over a high heat and lay the duck breasts skin side down in the hot pan. Fry for two minutes then turn over and fry for a further two minutes. Transfer the duck to a roasting tin and bake for 10 minutes.Meanwhile, bring half the port to the boil in a saucepan and simmer until reduced by half. Add the remaining port, return to the boil then simmer until reduced by half again. Add the redcurrant jelly and stock and stir until the jelly has melted.Remove the saucepan from the heat and gradually whisk in the butter a little at a time. Blend the arrowroot with one tablespoon of cold water and add to the saucepan with the berries. Return to the heat and simmer for two minutes until the sauce has thickened and is glossy.Allow the duck breasts to rest for 10 minutes before slicing. Serve the duck with bubble and squeak rostis, green beans and the berries.",
     imageURL:
-      "https://field-fare.com/wp-content/uploads/2017/05/Roasted-duck-breast-with-port-and-blackberry-sauce-1-e1521729368400.jpg",
+      "https://i.postimg.cc/hGBqNxYP/duck-breast-with-blueberry-caramel-sauce-recipe.jpg",
   },
 
   {
@@ -814,7 +814,7 @@ const recipes = [
       {
         quantity: "500 gr",
         name: "lasagna sheets",
-        type: "Rice and Pasta",
+        type: "Rice and pasta",
       },
       {
         quantity: "400 ml",
@@ -1180,7 +1180,8 @@ const recipes = [
     ],
     instructions:
       "Preheat oven to 350 degrees F (175 degrees C). Grease an 8x8-inch baking dish with butter.Beat eggs, sour cream, milk, and salt in a bowl until blended. Stir in green onions. Pour mixture in the prepared baking dish.Bake in the preheated oven until set, 25 to 30 minutes. Sprinkle Cheddar cheese over eggs and continue baking until cheese is melted, 2 to 3 minutes more. ",
-    imageURL: "https://www.theseasonedmom.com/wp-content/uploads/2019/05/Baked-Western-Omelet-10.jpg"
+    imageURL:
+      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bettycrocker.com%2Frecipes%2Fbacon-ham-and-cheddar-omelet-bake%2F12a1ab99-cde8-4c58-a158-2b1d1939230b&psig=AOvVaw3lbAZArXWPp2e-qDFsfhOm&ust=1613760032860000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOiXr-CK9O4CFQAAAAAdAAAAABAD",
   },
 
   {
@@ -1209,7 +1210,7 @@ const recipes = [
       {
         quantity: "350 gr",
         name: "spaghetti",
-        type: "Rice and Pasta",
+        type: "Rice and pasta",
       },
       {
         quantity: "2 cloves",
@@ -1372,7 +1373,7 @@ const recipes = [
       {
         quantity: "1 packet",
         name: "pasta",
-        type: "Rice and Pasta",
+        type: "Rice and pasta",
       },
       {
         quantity: "",
@@ -1416,7 +1417,7 @@ const recipes = [
       {
         quantity: "300gr",
         name: "rice",
-        type: "Rice and Pasta",
+        type: "Rice and pasta",
       },
       {
         quantity: "1 liter",
@@ -1470,8 +1471,7 @@ const recipes = [
     ],
     instructions:
       "Scrape the new potatoes or leave the skins on, if you prefer. Cut them into thick slices. Chop the onion.Heat the extra-virgin olive oil in a large frying pan, add the potatoes and onion and stew gently, partially covered, for 30 mins, stirring occasionally until the potatoes are softened. Strain the potatoes and onion through a colander into a large bowl (set the strained oil aside).Beat the eggs separately, then stir into the potatoes with the parsley and plenty of salt and pepper. Heat a little of the strained oil in a smaller pan.Tip everything into the pan and cook on a moderate heat, using a spatula to shape the omelette into a cushion.When almost set, invert on a plate and slide back into the pan and cook a few more minutes.Invert twice more, cooking the omelette briefly each time and pressing the edges to keep the cushion shape. Slide on to a plate and cool for 10 mins before serving.",
-    imageURL:
-      "data:image/jpeg;base64,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",
+    imageURL: "https://www.annarecetasfaciles.com/files/img_2484_1.jpg",
   },
 
   {
@@ -1549,7 +1549,7 @@ const recipes = [
       {
         quantity: "300gr",
         name: "gnocchi",
-        type: "Rice and Pasta",
+        type: "Rice and pasta",
       },
       {
         quantity: "2 tbsp",
@@ -1693,7 +1693,7 @@ const recipes = [
       {
         quantity: "170gr",
         name: "rice",
-        type: "Rice and Pasta",
+        type: "Rice and pasta",
       },
     ],
     instructions:
@@ -1989,7 +1989,7 @@ const recipes = [
       {
         quantity: "2 cups",
         name: "rice",
-        type: "Rice and Pasta",
+        type: "Rice and pasta",
       },
       {
         quantity: "6 cups",
