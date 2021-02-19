@@ -15,8 +15,9 @@ function addInput() {
             <option value="Condiments">Condiments</option>
             <option value="Dairy">Dairy</option>
             <option value="Drinks">Drinks</option>
+            <option value="Eggs">Eggs</option>
             <option value="Fish">Fish</option>
-                <option value="Flours">Flours</option>
+              <option value="Flours">Flours</option>
             <option value="Fruits">Fruits</option>
             <option value="Meat">Meat</option>
             <option value="Rice and Pasta">Rice and Pasta</option>
