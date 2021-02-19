@@ -10,7 +10,7 @@ const recipes = [
       {
         quantity: "1/4 cup",
         name: "rice",
-        type: "Rice and pasta",
+        type: "Rice and Pasta",
       },
       {
         quantity: "1/4 cup",
@@ -114,7 +114,7 @@ const recipes = [
       {
         quantity: "250gr",
         name: "orzo pasta",
-        type: "Rice and pasta",
+        type: "Rice and Pasta",
       },
       {
         quantity: "100gr grated",
@@ -148,7 +148,7 @@ const recipes = [
       {
         quantity: "1/2 cup",
         name: "rice",
-        type: "Rice and pasta",
+        type: "Rice and Pasta",
       },
       {
         quantity: "6 tbsps",
@@ -238,7 +238,7 @@ const recipes = [
       {
         quantity: "3 cups",
         name: "rice",
-        type: "Rice and pasta",
+        type: "Rice and Pasta",
       },
       {
         quantity: "1 can",
@@ -302,7 +302,7 @@ const recipes = [
       {
         quantity: "350gr",
         name: "rice",
-        type: "Rice and pasta",
+        type: "Rice and Pasta",
       },
       {
         quantity: "150ml",
@@ -377,7 +377,7 @@ const recipes = [
       {
         quantity: "140gr",
         name: "noodles",
-        type: "Rice and pasta",
+        type: "Rice and Pasta",
       },
       {
         quantity: "2 tbsp",
@@ -482,7 +482,7 @@ const recipes = [
       {
         quantity: "200 grs",
         name: "noodles",
-        type: "Rice and pasta",
+        type: "Rice and Pasta",
       },
       {
         quantity: 1,
@@ -809,7 +809,7 @@ const recipes = [
       {
         quantity: "500 gr",
         name: "lasagna sheets",
-        type: "Rice and pasta",
+        type: "Rice and Pasta",
       },
       {
         quantity: "400 ml",
@@ -1204,7 +1204,7 @@ const recipes = [
       {
         quantity: "350 gr",
         name: "spaghetti",
-        type: "Rice and pasta",
+        type: "Rice and Pasta",
       },
       {
         quantity: "2 cloves",
@@ -1534,7 +1534,7 @@ const recipes = [
     instructions:
       "Heat oven to 180C/160C fan/gas 4 and oil the inside of a 900g loaf tin. Tip the stuffing mix into a bowl, crumble in the stock cube and pour over 300ml boiling water. Give it a good stir, then set aside.Stretch the bacon rashers a little by running the back of a spoon along their length, then use 6-7 to line the base and longest sides of the tin. Chop the rest.Mix the chopped bacon and mince into the stuffing with some black pepper, then press into the bacon-lined tin and bake for 40 mins until firm. Turn out and serve sliced.",
     imageURL:
-      "https://images-gmi-pmc.edge-generalmills.com/3cf55356-20a0-4b40-b8ec-965ba1a92bb4.jpg",
+      "https://images-gmi-pmc.edge-generalmills.com/3cf55356-20a0-4b40-b8ec-965ba1a92bb4.jpg"
   },
 
   {
@@ -1687,7 +1687,7 @@ const recipes = [
       {
         quantity: "170gr",
         name: "rice",
-        type: "Rice and pasta",
+        type: "Rice and Pasta",
       },
     ],
     instructions:
