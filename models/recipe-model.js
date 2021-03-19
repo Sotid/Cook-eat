@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
 // RECIPE SCHEMA
 const recipeSchema = new Schema({
   name: { type: String },
@@ -10,17 +9,15 @@ const recipeSchema = new Schema({
       quantity: String,
       type: {
         type: String,
-
         enum: [
           "Meat",
           "Fish",
           "Condiments",
           "Drinks",
-          "Eggs",
           "Vegetables",
           "Cereals and Legumes",
           "Flours",
-          "Rice and pasta",
+          "Rice and Pasta",
           "Soups and Creams",
           "Dairy",
           "Fruits",
@@ -35,9 +32,6 @@ const recipeSchema = new Schema({
   },
   reviews: [String],
 });
-
 // CREATE MODEL
-
 const Recipe = mongoose.model("Recipe", recipeSchema);
-
 module.exports = Recipe;

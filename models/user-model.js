@@ -15,6 +15,10 @@ const userSchema = new Schema({
     type: [{ type: mongoose.Schema.Types.ObjectId, ref: "Recipe" }],
     default: [],
   },
+  myReviews: {
+    type: [{ type: mongoose.Schema.Types.ObjectId, ref: "Recipe" }],
+    default: [],
+  },
   imageURL: {
     type: String,
     default: "https://i.postimg.cc/wM25TjGC/unknown.png",

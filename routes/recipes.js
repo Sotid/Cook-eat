@@ -4,8 +4,8 @@ const Recipe = require("../models/recipe-model");
 const User = require("../models/user-model");
 const bodyParser = require("body-parser");
 
-//GET /show renders main view with a list of recipes in DB
 
+//GET /show renders main view with a list of recipes in DB
 recipesRouter.get("/show", function (req, res, next) {
   Recipe.aggregate([{ $sample: { size: 9 } }]).then((allRecipes) => {
     const data = {
@@ -14,9 +14,7 @@ recipesRouter.get("/show", function (req, res, next) {
     res.render("recipes", data);
   });
 });
-
 // GET /RECIPES[?q=str] - Render search results.
-
 recipesRouter.get("/", function (req, res, next) {
   const searchIngredient = req.query.search;
   console.log(searchIngredient);
@@ -32,12 +30,9 @@ recipesRouter.get("/", function (req, res, next) {
     );
   }
 });
-
 // GET /RECIPES/:id renders details view of chosen recipe
-
 recipesRouter.get("/:recipeId", function (req, res, next) {
   const { recipeId } = req.params;
-
   Recipe.findById(recipeId).then((oneRecipe) => {
     res.render("details", {
       oneRecipe: oneRecipe,
@@ -45,9 +40,7 @@ recipesRouter.get("/:recipeId", function (req, res, next) {
     });
   });
 });
-
 // POST /RECIPES/:id posts a review in a recipe. Renders same page with updated reviews
-
 recipesRouter.post("/:recipeId", function (req, res, next) {
   const { recipeId } = req.params;
   const reviews = req.body.review;
@@ -59,5 +52,4 @@ recipesRouter.post("/:recipeId", function (req, res, next) {
     res.redirect(`/recipes/${recipeId}`);
   });
 });
-
 module.exports = recipesRouter;
